@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ResolveAí — Precisou? ResolveAí.</title>
+    <title>ResolveAí — Araucária PR</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
@@ -328,10 +328,10 @@
             box-shadow: 0 4px 15px var(--accent-gold-glow);
         }
 
-        /* GRID DE PROFISSIONAIS (MVP) */
+        /* GRID DE PROFISSIONAIS */
         .prof-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(290px, 1fr));
+            grid-template-columns: repeat(auto-fill, minmax(310px, 1fr));
             gap: 20px;
         }
 
@@ -387,7 +387,7 @@
         .prof-details {
             font-size: 0.88rem;
             color: var(--text-muted);
-            margin-bottom: 20px;
+            margin-bottom: 15px;
             display: flex;
             flex-direction: column;
             gap: 4px;
@@ -400,7 +400,50 @@
             margin-top: 6px;
         }
 
-        /* CALCULADORA DE 7% */
+        /* CAIXA DE COMENTÁRIOS / DEPOIMENTOS NO CARD */
+        .reviews-box {
+            background: #181824;
+            border-radius: 10px;
+            padding: 10px 12px;
+            margin: 10px 0 15px 0;
+            border: 1px dashed rgba(229, 193, 88, 0.25);
+        }
+
+        .review-item {
+            font-size: 0.8rem;
+            color: #D1D1DB;
+            margin-bottom: 6px;
+            line-height: 1.3;
+        }
+
+        .review-item:last-child {
+            margin-bottom: 0;
+        }
+
+        .review-author {
+            color: var(--accent-gold);
+            font-weight: 700;
+            font-size: 0.78rem;
+        }
+
+        /* MAPA CONTAINER */
+        .map-container {
+            background: var(--bg-card);
+            border: 1px solid var(--border-accent);
+            border-radius: 20px;
+            padding: 20px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+        }
+
+        .map-container iframe {
+            width: 100%;
+            height: 420px;
+            border-radius: 12px;
+            filter: grayscale(0.3) contrast(1.1);
+        }
+
+        /* CALCULADORA */
         .calc-wrapper {
             max-width: 600px;
             margin: 0 auto;
@@ -458,7 +501,7 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: rgba(0, 0, 0, 0.8);
+            background: rgba(0, 0, 0, 0.85);
             backdrop-filter: blur(8px);
             display: none;
             align-items: center;
@@ -581,8 +624,8 @@
         <nav class="nav-menu" id="navMenu">
             <a href="#inicio">Início</a>
             <a href="#como-funciona">Como Funciona</a>
-            <a href="#categorias">Serviços</a>
-            <a href="#mvp">Plataforma MVP</a>
+            <a href="#mvp">Profissionais</a>
+            <a href="#mapa">Araucária</a>
             <a href="#taxa">Taxa Transparente</a>
         </nav>
     </header>
@@ -591,22 +634,22 @@
     <section id="inicio" class="hero">
         <div>
             <div class="badge-tag">
-                <span>EMPREENDEDORISMO • TURMA 2B</span>
+                <span>EDUCAÇÃO FINANCEIRA • TURMA 2B</span>
             </div>
-            <h1>Precisou? <br><span>ResolveAí.</span></h1>
-            <p>Conectamos você aos profissionais locais mais recomendados. Rápido, seguro e com a menor taxa do mercado.</p>
+            <h1>Precisou em Araucária? <br><span>ResolveAí.</span></h1>
+            <p>Conectamos você aos melhores profissionais da cidade de Araucária-PR. Atendimento rápido, direto e com total transparência.</p>
             <div class="cta-group">
                 <a href="#mvp" class="btn-gold">Encontrar Profissional</a>
-                <a href="#como-funciona" class="btn-outline">Conhecer o Projeto</a>
+                <a href="#mapa" class="btn-outline">Ver Região</a>
             </div>
         </div>
 
-        <!-- DASHBOARD HERO INTERATIVA -->
+        <!-- DASHBOARD HERO -->
         <div class="hero-dashboard">
             <div class="dash-header">
                 <div class="live-badge">
                     <span class="pulse-dot"></span>
-                    <span>16 Profissionais Ativos na Região</span>
+                    <span>16 Profissionais em Araucária-PR</span>
                 </div>
                 <span style="font-size: 0.8rem; color: var(--text-muted);">Comissão: 7%</span>
             </div>
@@ -615,7 +658,7 @@
                     <div class="dash-avatar">G</div>
                     <div>
                         <strong>Guilherme Oliveira</strong>
-                        <p style="font-size: 0.8rem; color: var(--text-muted);">Massoterapeuta & Bem-estar</p>
+                        <p style="font-size: 0.8rem; color: var(--text-muted);">Massagista em Casa</p>
                     </div>
                 </div>
                 <span style="color: var(--accent-gold); font-weight: 700;">★ 5.0</span>
@@ -625,7 +668,7 @@
                     <div class="dash-avatar">M</div>
                     <div>
                         <strong>Marcos Silva</strong>
-                        <p style="font-size: 0.8rem; color: var(--text-muted);">Eletricista Residencial</p>
+                        <p style="font-size: 0.8rem; color: var(--text-muted);">Eletricista</p>
                     </div>
                 </div>
                 <span style="color: var(--accent-gold); font-weight: 700;">★ 4.9</span>
@@ -635,7 +678,7 @@
                     <div class="dash-avatar">A</div>
                     <div>
                         <strong>Ana Oliveira</strong>
-                        <p style="font-size: 0.8rem; color: var(--text-muted);">Limpeza & Organização</p>
+                        <p style="font-size: 0.8rem; color: var(--text-muted);">Diarista</p>
                     </div>
                 </div>
                 <span style="color: var(--accent-gold); font-weight: 700;">★ 4.8</span>
@@ -646,45 +689,45 @@
     <!-- COMO FUNCIONA -->
     <section id="como-funciona" class="section-container">
         <div class="section-title">
-            <h2>Do problema à solução em 4 passos</h2>
-            <p>Jornada simples para cliente e profissional</p>
+            <h2>Como funciona a plataforma</h2>
+            <p>Simples, direto ao ponto e focado na comunidade local</p>
         </div>
         <div class="prof-grid">
             <div class="prof-card">
                 <div style="font-size: 2rem; color: var(--accent-gold); font-weight: 800; margin-bottom: 10px;">01</div>
-                <h3>1. Procure</h3>
-                <p style="color: var(--text-muted); font-size: 0.9rem; margin-top: 8px;">Escolha a categoria do serviço necessário em nossa lista atualizada.</p>
+                <h3>1. Escolha</h3>
+                <p style="color: var(--text-muted); font-size: 0.9rem; margin-top: 8px;">Encontre o profissional ideal para sua necessidade em Araucária.</p>
             </div>
             <div class="prof-card">
                 <div style="font-size: 2rem; color: var(--accent-gold); font-weight: 800; margin-bottom: 10px;">02</div>
-                <h3>2. Compare</h3>
-                <p style="color: var(--text-muted); font-size: 0.9rem; margin-top: 8px;">Veja avaliações reais, preços estimados e perfis verificados.</p>
+                <h3>2. Veja Avaliações</h3>
+                <p style="color: var(--text-muted); font-size: 0.9rem; margin-top: 8px;">Confira depoimentos reais de vizinhos e clientes da região.</p>
             </div>
             <div class="prof-card">
                 <div style="font-size: 2rem; color: var(--accent-gold); font-weight: 800; margin-bottom: 10px;">03</div>
                 <h3>3. Solicite</h3>
-                <p style="color: var(--text-muted); font-size: 0.9rem; margin-top: 8px;">Envie o pedido diretamente pela plataforma em segundos.</p>
+                <p style="color: var(--text-muted); font-size: 0.9rem; margin-top: 8px;">Faça o pedido diretamente em poucos cliques pelo aplicativo.</p>
             </div>
             <div class="prof-card">
                 <div style="font-size: 2rem; color: var(--accent-gold); font-weight: 800; margin-bottom: 10px;">04</div>
                 <h3>4. Avalie</h3>
-                <p style="color: var(--text-muted); font-size: 0.9rem; margin-top: 8px;">Conclua o serviço e ajude a fortalecer a comunidade local.</p>
+                <p style="color: var(--text-muted); font-size: 0.9rem; margin-top: 8px;">Ajude a manter a qualidade dos serviços da nossa cidade.</p>
             </div>
         </div>
     </section>
 
-    <!-- MVP CATÁLOGO INTERATIVO DE PROFISSIONAIS -->
+    <!-- CATÁLOGO INTERATIVO DE PROFISSIONAIS -->
     <section id="mvp" class="section-container">
         <div class="section-title">
-            <h2>Plataforma em Tempo Real (MVP)</h2>
-            <p>Filtre e selecione profissionais da sua comunidade</p>
+            <h2>Profissionais Cadastrados</h2>
+            <p>Selecione uma categoria ou encontre o prestador de serviço ideal</p>
         </div>
 
         <!-- FILTROS -->
         <div class="filter-tabs">
             <button class="tab-btn active" onclick="filtrar('todos', this)">Todos (16)</button>
             <button class="tab-btn" onclick="filtrar('bem-estar', this)">Saúde & Bem-Estar</button>
-            <button class="tab-btn" onclick="filtrar('casa', this)">Casa & Manutenção</button>
+            <button class="tab-btn" onclick="filtrar('casa', this)">Manutenção & Casa</button>
             <button class="tab-btn" onclick="filtrar('limpeza', this)">Limpeza</button>
             <button class="tab-btn" onclick="filtrar('tech', this)">Tecnologia</button>
             <button class="tab-btn" onclick="filtrar('pets', this)">Pets</button>
@@ -701,17 +744,30 @@
                         <div class="prof-avatar">G</div>
                         <div class="prof-info">
                             <h3>Guilherme Oliveira</h3>
-                            <span class="prof-tag">Massoterapeuta & Massagista</span>
+                            <span class="prof-tag">Massagista</span>
                         </div>
                     </div>
                     <div class="prof-details">
-                        <span>★ 5.0 (38 avaliações)</span>
-                        <span>📍 Atende em domicílio / Clínica</span>
-                        <span>Especialista em massagem relaxante e desportiva.</span>
+                        <span>★ 5.0 (52 avaliações)</span>
+                        <span>📍 Atendimento em Casa (Araucária e Região)</span>
+                        <span>Massagem relaxante no conforto do seu lar. Atendimento especial para dores e articulações.</span>
                         <div class="prof-price">A partir de R$ 90,00</div>
                     </div>
+
+                    <!-- DEPOIMENTOS DAS DONAS -->
+                    <div class="reviews-box">
+                        <div class="review-item">
+                            <span class="review-author">Dona Lourdes:</span> "Nota 1000! 5 estrelas! Incrível esse massagista, tirou toda a dor das minhas costas!"
+                        </div>
+                        <div class="review-item">
+                            <span class="review-author">Dona Maria:</span> "Atendimento nota 1000 em casa! Muito educado, paciente e profissional!"
+                        </div>
+                        <div class="review-item">
+                            <span class="review-author">Dona Neusa:</span> "Excelente! Com certeza nota 1000, fiquei novinha em folha!"
+                        </div>
+                    </div>
                 </div>
-                <button class="btn-gold" onclick="abrirModal('Guilherme Oliveira', 'Massoterapeuta', 90)">Solicitar Serviço</button>
+                <button class="btn-gold" onclick="abrirModal('Guilherme Oliveira', 'Massagista em Casa', 90)">Solicitar Massagista</button>
             </div>
 
             <!-- MARCOS SILVA -->
@@ -721,17 +777,22 @@
                         <div class="prof-avatar">M</div>
                         <div class="prof-info">
                             <h3>Marcos Silva</h3>
-                            <span class="prof-tag">Eletricista Residencial</span>
+                            <span class="prof-tag">Eletricista</span>
                         </div>
                     </div>
                     <div class="prof-details">
                         <span>★ 4.9 (42 avaliações)</span>
-                        <span>📍 Atendimento rápido local</span>
-                        <span>Quadros elétricos, fiação e tomadas.</span>
+                        <span>📍 Araucária - PR</span>
+                        <span>Conserto de tomadas, disjuntores e fiação residencial.</span>
                         <div class="prof-price">A partir de R$ 80,00</div>
                     </div>
+                    <div class="reviews-box">
+                        <div class="review-item">
+                            <span class="review-author">Seu João:</span> "Resolveu o curto-circuito super rápido. Recomendo!"
+                        </div>
+                    </div>
                 </div>
-                <button class="btn-gold" onclick="abrirModal('Marcos Silva', 'Eletricista', 80)">Solicitar Serviço</button>
+                <button class="btn-gold" onclick="abrirModal('Marcos Silva', 'Eletricista', 80)">Solicitar Eletricista</button>
             </div>
 
             <!-- ANA OLIVEIRA -->
@@ -741,17 +802,22 @@
                         <div class="prof-avatar">A</div>
                         <div class="prof-info">
                             <h3>Ana Oliveira</h3>
-                            <span class="prof-tag">Serviços de Diarista</span>
+                            <span class="prof-tag">Diarista</span>
                         </div>
                     </div>
                     <div class="prof-details">
                         <span>★ 4.8 (50 avaliações)</span>
-                        <span>📍 Região Central</span>
-                        <span>Limpeza residencial completa e organização.</span>
+                        <span>📍 Centro - Araucária</span>
+                        <span>Limpeza geral e organização de residências.</span>
                         <div class="prof-price">A partir de R$ 120,00</div>
                     </div>
+                    <div class="reviews-box">
+                        <div class="review-item">
+                            <span class="review-author">Dona Tereza:</span> "Deixou a casa brilhando, nota 10!"
+                        </div>
+                    </div>
                 </div>
-                <button class="btn-gold" onclick="abrirModal('Ana Oliveira', 'Diarista', 120)">Solicitar Serviço</button>
+                <button class="btn-gold" onclick="abrirModal('Ana Oliveira', 'Diarista', 120)">Solicitar Diarista</button>
             </div>
 
             <!-- CARLOS EDUARDO -->
@@ -761,17 +827,22 @@
                         <div class="prof-avatar">C</div>
                         <div class="prof-info">
                             <h3>Carlos Eduardo</h3>
-                            <span class="prof-tag">Técnico em TI & Redes</span>
+                            <span class="prof-tag">Técnico de Informática</span>
                         </div>
                     </div>
                     <div class="prof-details">
                         <span>★ 5.0 (29 avaliações)</span>
-                        <span>📍 Atendimento presencial e remoto</span>
-                        <span>Configuração de Wi-Fi, notebooks e formatação.</span>
+                        <span>📍 Araucária - PR</span>
+                        <span>Conserto de notebooks, computadores e redes Wi-Fi.</span>
                         <div class="prof-price">A partir de R$ 70,00</div>
                     </div>
+                    <div class="reviews-box">
+                        <div class="review-item">
+                            <span class="review-author">Lucas M.:</span> "Arrumou meu notebook no mesmo dia."
+                        </div>
+                    </div>
                 </div>
-                <button class="btn-gold" onclick="abrirModal('Carlos Eduardo', 'Técnico TI', 70)">Solicitar Serviço</button>
+                <button class="btn-gold" onclick="abrirModal('Carlos Eduardo', 'Técnico de Informática', 70)">Solicitar Técnico</button>
             </div>
 
             <!-- BEATRIZ SANTOS -->
@@ -781,17 +852,22 @@
                         <div class="prof-avatar">B</div>
                         <div class="prof-info">
                             <h3>Beatriz Santos</h3>
-                            <span class="prof-tag">Pet Sitter & Passeadora</span>
+                            <span class="prof-tag">Passeadora de Pets</span>
                         </div>
                     </div>
                     <div class="prof-details">
                         <span>★ 4.9 (31 avaliações)</span>
-                        <span>📍 Bairros vizinhos</span>
-                        <span>Cuidados para cães e gatos com carinho.</span>
+                        <span>📍 Bairros de Araucária</span>
+                        <span>Passeios e cuidados diários para o seu cão.</span>
                         <div class="prof-price">A partir de R$ 40,00</div>
                     </div>
+                    <div class="reviews-box">
+                        <div class="review-item">
+                            <span class="review-author">Carla F.:</span> "Meu cachorro adora os passeios com a Bia!"
+                        </div>
+                    </div>
                 </div>
-                <button class="btn-gold" onclick="abrirModal('Beatriz Santos', 'Pet Sitter', 40)">Solicitar Serviço</button>
+                <button class="btn-gold" onclick="abrirModal('Beatriz Santos', 'Passeadora de Pets', 40)">Solicitar Passeadora</button>
             </div>
 
             <!-- RODRIGO MENDES -->
@@ -801,17 +877,17 @@
                         <div class="prof-avatar">R</div>
                         <div class="prof-info">
                             <h3>Rodrigo Mendes</h3>
-                            <span class="prof-tag">Jardinagem & Poda</span>
+                            <span class="prof-tag">Jardineiro</span>
                         </div>
                     </div>
                     <div class="prof-details">
                         <span>★ 4.7 (19 avaliações)</span>
-                        <span>📍 Atendimento com equipamento próprio</span>
-                        <span>Corte de grama e limpeza de terrenos.</span>
+                        <span>📍 Atendimento local</span>
+                        <span>Corte de grama, poda de árvores e limpeza de quintal.</span>
                         <div class="prof-price">A partir de R$ 100,00</div>
                     </div>
                 </div>
-                <button class="btn-gold" onclick="abrirModal('Rodrigo Mendes', 'Jardineiro', 100)">Solicitar Serviço</button>
+                <button class="btn-gold" onclick="abrirModal('Rodrigo Mendes', 'Jardineiro', 100)">Solicitar Jardineiro</button>
             </div>
 
             <!-- FERNANDO SOUZA -->
@@ -821,17 +897,17 @@
                         <div class="prof-avatar">F</div>
                         <div class="prof-info">
                             <h3>Fernando Souza</h3>
-                            <span class="prof-tag">Socorro Mecânico & Borracharia</span>
+                            <span class="prof-tag">Mecânico</span>
                         </div>
                     </div>
                     <div class="prof-details">
                         <span>★ 4.8 (27 avaliações)</span>
-                        <span>📍 Atendimento Móvel 24h</span>
-                        <span>Troca de pneu, bateria e mecânica leve.</span>
+                        <span>📍 Socorro em Araucária</span>
+                        <span>Troca de pneu, bateria e socorro mecânico rápido.</span>
                         <div class="prof-price">A partir de R$ 60,00</div>
                     </div>
                 </div>
-                <button class="btn-gold" onclick="abrirModal('Fernando Souza', 'Mecânico', 60)">Solicitar Serviço</button>
+                <button class="btn-gold" onclick="abrirModal('Fernando Souza', 'Mecânico', 60)">Solicitar Mecânico</button>
             </div>
 
             <!-- JULIANA COSTA -->
@@ -841,17 +917,17 @@
                         <div class="prof-avatar">J</div>
                         <div class="prof-info">
                             <h3>Juliana Costa</h3>
-                            <span class="prof-tag">Pintora Residencial</span>
+                            <span class="prof-tag">Pintora</span>
                         </div>
                     </div>
                     <div class="prof-details">
                         <span>★ 5.0 (15 avaliações)</span>
-                        <span>📍 Paredes e acabamentos finos</span>
-                        <span>Pintura interna, textura e restauração.</span>
+                        <span>📍 Araucária - PR</span>
+                        <span>Pintura de paredes internas, externas e muros.</span>
                         <div class="prof-price">A partir de R$ 150,00</div>
                     </div>
                 </div>
-                <button class="btn-gold" onclick="abrirModal('Juliana Costa', 'Pintora', 150)">Solicitar Serviço</button>
+                <button class="btn-gold" onclick="abrirModal('Juliana Costa', 'Pintora', 150)">Solicitar Pintora</button>
             </div>
 
             <!-- LUCAS PEREIRA -->
@@ -861,17 +937,17 @@
                         <div class="prof-avatar">L</div>
                         <div class="prof-info">
                             <h3>Lucas Pereira</h3>
-                            <span class="prof-tag">Encanador Hidráulico</span>
+                            <span class="prof-tag">Encanador</span>
                         </div>
                     </div>
                     <div class="prof-details">
                         <span>★ 4.9 (34 avaliações)</span>
-                        <span>📍 Reparos emergenciais</span>
-                        <span>Caça vazamentos e desentupimento.</span>
+                        <span>📍 Atendimento de emergência</span>
+                        <span>Reparo de vazamentos, pias e torneiras.</span>
                         <div class="prof-price">A partir de R$ 85,00</div>
                     </div>
                 </div>
-                <button class="btn-gold" onclick="abrirModal('Lucas Pereira', 'Encanador', 85)">Solicitar Serviço</button>
+                <button class="btn-gold" onclick="abrirModal('Lucas Pereira', 'Encanador', 85)">Solicitar Encanador</button>
             </div>
 
             <!-- CAMILA RAMOS -->
@@ -881,17 +957,17 @@
                         <div class="prof-avatar">C</div>
                         <div class="prof-info">
                             <h3>Camila Ramos</h3>
-                            <span class="prof-tag">Higienização de Estofados</span>
+                            <span class="prof-tag">Lavadora de Estofados</span>
                         </div>
                     </div>
                     <div class="prof-details">
                         <span>★ 4.9 (22 avaliações)</span>
-                        <span>📍 Limpeza a seco no local</span>
-                        <span>Lavagem de sofás, colchões e tapetes.</span>
+                        <span>📍 Atendimento em Casa</span>
+                        <span>Limpeza e higienização de sofás, colchões e poltronas.</span>
                         <div class="prof-price">A partir de R$ 110,00</div>
                     </div>
                 </div>
-                <button class="btn-gold" onclick="abrirModal('Camila Ramos', 'Limpeza Estofados', 110)">Solicitar Serviço</button>
+                <button class="btn-gold" onclick="abrirModal('Camila Ramos', 'Lavadora de Estofados', 110)">Solicitar Serviço</button>
             </div>
 
             <!-- RAFAEL LIMA -->
@@ -901,17 +977,17 @@
                         <div class="prof-avatar">R</div>
                         <div class="prof-info">
                             <h3>Rafael Lima</h3>
-                            <span class="prof-tag">Montagem & Manutenção PC</span>
+                            <span class="prof-tag">Técnico de PC</span>
                         </div>
                     </div>
                     <div class="prof-details">
                         <span>★ 5.0 (40 avaliações)</span>
-                        <span>📍 Computadores e Gamers</span>
-                        <span>Limpeza interna, troca de pasta térmica.</span>
+                        <span>📍 Araucária - PR</span>
+                        <span>Montagem, limpeza e formatação de computadores.</span>
                         <div class="prof-price">A partir de R$ 75,00</div>
                     </div>
                 </div>
-                <button class="btn-gold" onclick="abrirModal('Rafael Lima', 'Manutenção PC', 75)">Solicitar Serviço</button>
+                <button class="btn-gold" onclick="abrirModal('Rafael Lima', 'Técnico de PC', 75)">Solicitar Serviço</button>
             </div>
 
             <!-- VANESSA ROCHA -->
@@ -921,17 +997,17 @@
                         <div class="prof-avatar">V</div>
                         <div class="prof-info">
                             <h3>Vanessa Rocha</h3>
-                            <span class="prof-tag">Adestradora Canina</span>
+                            <span class="prof-tag">Adestradora</span>
                         </div>
                     </div>
                     <div class="prof-details">
                         <span>★ 4.8 (18 avaliações)</span>
-                        <span>📍 Comportamento animal</span>
-                        <span>Obediência básica e correção de hábitos.</span>
+                        <span>📍 Atendimento em Casa</span>
+                        <span>Treinamento de obediência e hábitos para cães.</span>
                         <div class="prof-price">A partir de R$ 95,00</div>
                     </div>
                 </div>
-                <button class="btn-gold" onclick="abrirModal('Vanessa Rocha', 'Adestradora', 95)">Solicitar Serviço</button>
+                <button class="btn-gold" onclick="abrirModal('Vanessa Rocha', 'Adestradora', 95)">Solicitar Adestradora</button>
             </div>
 
             <!-- GABRIEL ALVES -->
@@ -941,17 +1017,17 @@
                         <div class="prof-avatar">G</div>
                         <div class="prof-info">
                             <h3>Gabriel Alves</h3>
-                            <span class="prof-tag">Chaveiro 24 Horas</span>
+                            <span class="prof-tag">Chaveiro</span>
                         </div>
                     </div>
                     <div class="prof-details">
                         <span>★ 4.9 (61 avaliações)</span>
-                        <span>📍 Abertura rápida de portas</span>
-                        <span>Cópias de chaves, fechaduras digitais.</span>
+                        <span>📍 Atendimento 24 horas</span>
+                        <span>Abertura de portas e troca de segredos.</span>
                         <div class="prof-price">A partir de R$ 50,00</div>
                     </div>
                 </div>
-                <button class="btn-gold" onclick="abrirModal('Gabriel Alves', 'Chaveiro', 50)">Solicitar Serviço</button>
+                <button class="btn-gold" onclick="abrirModal('Gabriel Alves', 'Chaveiro', 50)">Solicitar Chaveiro</button>
             </div>
 
             <!-- MARIANA DIAS -->
@@ -961,17 +1037,17 @@
                         <div class="prof-avatar">M</div>
                         <div class="prof-info">
                             <h3>Mariana Dias</h3>
-                            <span class="prof-tag">Personal Organizer</span>
+                            <span class="prof-tag">Organizadora</span>
                         </div>
                     </div>
                     <div class="prof-details">
                         <span>★ 5.0 (14 avaliações)</span>
-                        <span>📍 Organização de closets e cozinhas</span>
-                        <span>Otimização de espaços residenciais.</span>
+                        <span>📍 Araucária - PR</span>
+                        <span>Organização de guarda-roupas, armários e cômodos.</span>
                         <div class="prof-price">A partir de R$ 130,00</div>
                     </div>
                 </div>
-                <button class="btn-gold" onclick="abrirModal('Mariana Dias', 'Organizer', 130)">Solicitar Serviço</button>
+                <button class="btn-gold" onclick="abrirModal('Mariana Dias', 'Organizadora', 130)">Solicitar Organizadora</button>
             </div>
 
             <!-- FELIPE CASTRO -->
@@ -981,17 +1057,17 @@
                         <div class="prof-avatar">F</div>
                         <div class="prof-info">
                             <h3>Felipe Castro</h3>
-                            <span class="prof-tag">Estética Automotiva</span>
+                            <span class="prof-tag">Lavador de Carros</span>
                         </div>
                     </div>
                     <div class="prof-details">
                         <span>★ 4.9 (28 avaliações)</span>
-                        <span>📍 Polimento e lavagem detalhada</span>
-                        <span>Proteção de pintura e limpeza interna.</span>
+                        <span>📍 Lavagem em Casa</span>
+                        <span>Lavagem detalhada e polimento automotivo.</span>
                         <div class="prof-price">A partir de R$ 100,00</div>
                     </div>
                 </div>
-                <button class="btn-gold" onclick="abrirModal('Felipe Castro', 'Estética Auto', 100)">Solicitar Serviço</button>
+                <button class="btn-gold" onclick="abrirModal('Felipe Castro', 'Lavador de Carros', 100)">Solicitar Serviço</button>
             </div>
 
             <!-- LARISSA MARTINS -->
@@ -1006,14 +1082,25 @@
                     </div>
                     <div class="prof-details">
                         <span>★ 5.0 (25 avaliações)</span>
-                        <span>📍 Treinos ao ar livre e condomínios</span>
-                        <span>Acompanhamento físico e postura.</span>
+                        <span>📍 Parques e Condomínios de Araucária</span>
+                        <span>Treinos personalizados para saúde e postura.</span>
                         <div class="prof-price">A partir de R$ 80,00</div>
                     </div>
                 </div>
-                <button class="btn-gold" onclick="abrirModal('Larissa Martins', 'Personal Trainer', 80)">Solicitar Serviço</button>
+                <button class="btn-gold" onclick="abrirModal('Larissa Martins', 'Personal Trainer', 80)">Solicitar Personal</button>
             </div>
 
+        </div>
+    </section>
+
+    <!-- SEÇÃO MAPA DE ARAUCÁRIA -->
+    <section id="mapa" class="section-container">
+        <div class="section-title">
+            <h2>Atendendo Toda Araucária - PR</h2>
+            <p>Conectando bairros e facilitando serviços locais</p>
+        </div>
+        <div class="map-container">
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d115165.41552832357!2d-49.38561285!3d-25.574353649999995!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94dd02f54dadbe6b%3A0xb140cbe0e164b0f4!2zQXJhdWPDoXJpYSwgUFI!5e0!3m2!1spt-BR!2sbr!4v1787258420596!5m2!1spt-BR!2sbr" allowfullscreen="" loading="lazy" referrerpolicy="strict-origin-when-cross-origin"></iframe>
         </div>
     </section>
 
@@ -1052,23 +1139,23 @@
             
             <div class="form-group">
                 <label>Seu Nome Completo:</label>
-                <input type="text" id="cliNome" placeholder="Ex: João Silva">
+                <input type="text" id="cliNome" placeholder="Ex: Dona Lourdes / João Silva">
             </div>
             <div class="form-group">
-                <label>Endereço de Atendimento:</label>
-                <input type="text" id="cliEnd" placeholder="Rua / Bairro local">
+                <label>Bairro / Endereço em Araucária:</label>
+                <input type="text" id="cliEnd" placeholder="Ex: Centro / Costeira / Campina da Barra">
             </div>
             <div class="form-group">
                 <label>Descreva o que precisa:</label>
-                <textarea id="cliDesc" rows="3" placeholder="Detalhes do problema..."></textarea>
+                <textarea id="cliDesc" rows="3" placeholder="Ex: Preciso de atendimento de massagem em casa para dores..."></textarea>
             </div>
 
             <div style="background: rgba(229,193,88,0.1); padding: 12px; border-radius: 8px; margin-bottom: 20px; font-size: 0.85rem;">
                 <span>Valor estimado do serviço: <strong id="modalPreco">R$ 0,00</strong></span><br>
-                <span style="color: var(--text-muted);">Taxa ResolveAí (7% inclusa na intermediação)</span>
+                <span style="color: var(--text-muted);">Taxa ResolveAí de 7% inclusa na intermediação</span>
             </div>
 
-            <button class="btn-gold" style="width: 100%;" onclick="confirmarAgendamento()">Confirmar Solicitação</button>
+            <button class="btn-gold" style="width: 100%;" onclick="confirmarAgendamento()">Confirmar Agendamento</button>
         </div>
     </div>
 
@@ -1077,8 +1164,8 @@
 
     <!-- FOOTER -->
     <footer>
-        <p><strong>ResolveAí</strong> — "Precisou? ResolveAí."</p>
-        <p>Projeto para a disciplina de Empreendedorismo • Turma 2B</p>
+        <p><strong>ResolveAí</strong> — "Precisou em Araucária? ResolveAí."</p>
+        <p>Projeto para a disciplina de Educação Financeira • Turma 2B</p>
         <div class="team-tags">
             <span>Savio Henrique (nº 33)</span> • 
             <span>Guilherme de Oliveira (nº 15)</span> • 
@@ -1086,7 +1173,7 @@
         </div>
     </footer>
 
-    <!-- JS COMPLETO -->
+    <!-- JS -->
     <script>
         // Toggle Menu Mobile
         const menuToggle = document.getElementById('menuToggle');
