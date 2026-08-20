@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ResolveAí — Araucária PR</title>
+    <title>ResolveAí — Conectando Araucária PR</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
@@ -12,12 +12,12 @@
         :root {
             --bg-body: #08080C;
             --bg-card: #12121A;
-            --bg-card-hover: #191924;
-            --border-card: rgba(255, 255, 255, 0.07);
+            --bg-card-hover: #181826;
+            --border-card: rgba(255, 255, 255, 0.08);
             --border-accent: rgba(229, 193, 88, 0.35);
             --accent-gold: #E5C158;
             --accent-gold-hover: #D4B047;
-            --accent-gold-glow: rgba(229, 193, 88, 0.2);
+            --accent-gold-glow: rgba(229, 193, 88, 0.18);
             --text-main: #F4F4F8;
             --text-muted: #9E9EA8;
             --success: #30D158;
@@ -30,31 +30,38 @@
             box-sizing: border-box;
         }
 
+        /* Removendo setinhas do campo de número */
+        input[type=number]::-webkit-inner-spin-button, 
+        input[type=number]::-webkit-outer-spin-button { 
+            -webkit-appearance: none;
+            margin: 0; 
+        }
+        input[type=number] { -moz-appearance: textfield; }
+
         body {
             background-color: var(--bg-body);
             color: var(--text-main);
             font-family: var(--font-main);
             line-height: 1.6;
             padding-top: 80px;
-            overflow-x: hidden;
             min-height: 100vh;
             display: flex;
             flex-direction: column;
             justify-content: space-between;
         }
 
-        /* NAVEGAÇÃO ENTRE PÁGINAS (SISTEMA DE TELAS) */
+        /* NAVEGAÇÃO ENTRE PÁGINAS VIRTUAIS */
         .pagina {
-            display: none; /* Esconde todas as páginas por padrão */
-            animation: fadeIn 0.3s ease-in-out;
+            display: none;
+            animation: fadeIn 0.35s ease-in-out;
         }
 
         .pagina.ativa {
-            display: block; /* Mostra apenas a página com a classe .ativa */
+            display: block;
         }
 
         @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(10px); }
+            from { opacity: 0; transform: translateY(8px); }
             to { opacity: 1; transform: translateY(0); }
         }
 
@@ -65,13 +72,13 @@
             left: 0;
             width: 100%;
             height: 80px;
-            background: rgba(8, 8, 12, 0.9);
+            background: rgba(8, 8, 12, 0.92);
             backdrop-filter: blur(20px);
             -webkit-backdrop-filter: blur(20px);
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 0 7%;
+            padding: 0 5%;
             border-bottom: 1px solid var(--border-card);
             z-index: 1000;
         }
@@ -82,7 +89,7 @@
             gap: 12px;
             text-decoration: none;
             color: var(--text-main);
-            font-size: 1.5rem;
+            font-size: 1.4rem;
             font-weight: 800;
             cursor: pointer;
         }
@@ -90,8 +97,8 @@
         .brand-logo span span { color: var(--accent-gold); }
 
         .logo-box {
-            width: 42px;
-            height: 42px;
+            width: 40px;
+            height: 40px;
             background: linear-gradient(135deg, #1A1A26, #28283A);
             border: 1px solid var(--border-accent);
             border-radius: 12px;
@@ -106,7 +113,7 @@
 
         .nav-menu {
             display: flex;
-            gap: 20px;
+            gap: 12px;
             align-items: center;
         }
 
@@ -115,17 +122,22 @@
             border: none;
             color: var(--text-muted);
             font-weight: 600;
-            font-size: 0.95rem;
+            font-size: 0.9rem;
             cursor: pointer;
-            padding: 8px 12px;
-            border-radius: 8px;
-            transition: all 0.3s ease;
+            padding: 8px 14px;
+            border-radius: 10px;
+            transition: all 0.25s ease;
             font-family: var(--font-main);
         }
 
         .nav-btn:hover, .nav-btn.active {
             color: var(--accent-gold);
-            background: rgba(229, 193, 88, 0.1);
+            background: rgba(229, 193, 88, 0.08);
+        }
+
+        .nav-btn.admin-btn {
+            border: 1px dashed var(--border-accent);
+            color: var(--accent-gold);
         }
 
         .menu-toggle {
@@ -139,18 +151,19 @@
 
         /* BOTÃO VOLTAR */
         .btn-voltar {
-            background: rgba(255, 255, 255, 0.05);
+            background: rgba(255, 255, 255, 0.04);
             border: 1px solid var(--border-card);
             color: var(--text-main);
-            padding: 10px 20px;
+            padding: 10px 22px;
             border-radius: 30px;
             font-weight: 600;
             cursor: pointer;
             display: inline-flex;
             align-items: center;
             gap: 8px;
-            margin-bottom: 30px;
+            margin-bottom: 25px;
             transition: all 0.3s ease;
+            font-family: var(--font-main);
         }
 
         .btn-voltar:hover {
@@ -159,14 +172,14 @@
             background: rgba(229, 193, 88, 0.1);
         }
 
-        /* HERO SECTION (INÍCIO) */
+        /* HERO INÍCIO */
         .hero {
             display: grid;
             grid-template-columns: 1.1fr 0.9fr;
             gap: 50px;
-            padding: 60px 7%;
+            padding: 50px 6%;
             align-items: center;
-            max-width: 1400px;
+            max-width: 1350px;
             margin: 0 auto;
         }
 
@@ -174,7 +187,7 @@
             display: inline-flex;
             align-items: center;
             gap: 8px;
-            background: rgba(229, 193, 88, 0.1);
+            background: rgba(229, 193, 88, 0.08);
             border: 1px solid var(--border-accent);
             color: var(--accent-gold);
             padding: 6px 16px;
@@ -185,8 +198,8 @@
         }
 
         .hero h1 {
-            font-size: 3.2rem;
-            line-height: 1.15;
+            font-size: 3rem;
+            line-height: 1.18;
             font-weight: 800;
             margin-bottom: 20px;
         }
@@ -195,27 +208,27 @@
 
         .hero p {
             color: var(--text-muted);
-            font-size: 1.1rem;
-            margin-bottom: 35px;
-            max-width: 550px;
+            font-size: 1.08rem;
+            margin-bottom: 30px;
+            max-width: 540px;
         }
 
         .cta-group {
             display: flex;
-            gap: 16px;
+            gap: 14px;
             flex-wrap: wrap;
         }
 
         .btn-gold {
             background: var(--accent-gold);
             color: #000;
-            padding: 14px 28px;
-            border-radius: 10px;
+            padding: 14px 26px;
+            border-radius: 12px;
             font-weight: 700;
             border: none;
             cursor: pointer;
             box-shadow: 0 4px 20px var(--accent-gold-glow);
-            transition: all 0.2s ease;
+            transition: all 0.25s ease;
             display: inline-flex;
             align-items: center;
             justify-content: center;
@@ -231,8 +244,8 @@
         .btn-outline {
             background: transparent;
             color: var(--text-main);
-            padding: 14px 28px;
-            border-radius: 10px;
+            padding: 14px 26px;
+            border-radius: 12px;
             font-weight: 600;
             border: 1px solid var(--border-card);
             cursor: pointer;
@@ -245,13 +258,13 @@
             background: rgba(255, 255, 255, 0.03);
         }
 
-        /* CARD DESTAQUE NA PÁGINA INICIAL */
+        /* CARD DE RESUMO INÍCIO */
         .hero-dashboard {
             background: var(--bg-card);
             border: 1px solid var(--border-card);
             border-radius: 24px;
             padding: 24px;
-            box-shadow: 0 20px 50px rgba(0,0,0,0.6);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.5);
         }
 
         .dash-header {
@@ -266,22 +279,29 @@
         .live-badge {
             display: flex;
             align-items: center;
-            gap: 6px;
-            font-size: 0.8rem;
+            gap: 8px;
+            font-size: 0.85rem;
             color: var(--success);
-            font-weight: 600;
+            font-weight: 700;
         }
 
         .pulse-dot {
-            width: 8px;
-            height: 8px;
+            width: 9px;
+            height: 9px;
             background: var(--success);
             border-radius: 50%;
             box-shadow: 0 0 10px var(--success);
+            animation: pulse 1.6s infinite;
+        }
+
+        @keyframes pulse {
+            0% { opacity: 1; transform: scale(1); }
+            50% { opacity: 0.4; transform: scale(1.2); }
+            100% { opacity: 1; transform: scale(1); }
         }
 
         .dash-card {
-            background: #181822;
+            background: #171722;
             border: 1px solid var(--border-card);
             padding: 14px;
             border-radius: 12px;
@@ -290,10 +310,12 @@
             align-items: center;
             justify-content: space-between;
             cursor: pointer;
+            transition: all 0.2s;
         }
 
         .dash-card:hover {
             border-color: var(--border-accent);
+            transform: scale(1.01);
         }
 
         .dash-user {
@@ -303,46 +325,75 @@
         }
 
         .dash-avatar {
-            width: 40px;
-            height: 40px;
-            border-radius: 50%;
-            background: #242434;
+            width: 42px;
+            height: 42px;
+            border-radius: 10px;
+            background: #222232;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-weight: 700;
+            font-weight: 800;
             color: var(--accent-gold);
             border: 1px solid var(--border-accent);
         }
 
         /* SEÇÕES DE CONTEÚDO */
         .section-container {
-            padding: 40px 7% 80px 7%;
-            max-width: 1400px;
+            padding: 40px 6% 70px 6%;
+            max-width: 1350px;
             margin: 0 auto;
             width: 100%;
         }
 
         .section-title {
             text-align: center;
-            margin-bottom: 40px;
+            margin-bottom: 35px;
         }
 
         .section-title h2 {
-            font-size: 2.2rem;
+            font-size: 2.1rem;
             font-weight: 800;
-            margin-bottom: 10px;
+            margin-bottom: 8px;
         }
 
         .section-title p {
             color: var(--text-muted);
-            font-size: 1.05rem;
+            font-size: 1rem;
+        }
+
+        /* CAMPO DE BUSCA DE PROFISSIONAIS */
+        .search-box-wrapper {
+            max-width: 650px;
+            margin: 0 auto 25px auto;
+            position: relative;
+        }
+
+        .search-box-wrapper input {
+            width: 100%;
+            background: var(--bg-card);
+            border: 1px solid var(--border-accent);
+            padding: 16px 20px 16px 50px;
+            border-radius: 16px;
+            color: #fff;
+            font-size: 1rem;
+            outline: none;
+            font-family: var(--font-main);
+            box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+        }
+
+        .search-icon {
+            position: absolute;
+            left: 18px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: var(--accent-gold);
+            font-size: 1.2rem;
         }
 
         /* FILTROS DA PÁGINA PROFISSIONAIS */
         .filter-tabs {
             display: flex;
-            gap: 10px;
+            gap: 8px;
             justify-content: center;
             flex-wrap: wrap;
             margin-bottom: 35px;
@@ -352,12 +403,12 @@
             background: var(--bg-card);
             border: 1px solid var(--border-card);
             color: var(--text-muted);
-            padding: 10px 20px;
+            padding: 9px 18px;
             border-radius: 30px;
             cursor: pointer;
             font-weight: 600;
-            font-size: 0.9rem;
-            transition: all 0.3s ease;
+            font-size: 0.88rem;
+            transition: all 0.25s ease;
             font-family: var(--font-main);
         }
 
@@ -377,8 +428,8 @@
         .prof-card {
             background: var(--bg-card);
             border: 1px solid var(--border-card);
-            padding: 24px;
-            border-radius: 16px;
+            padding: 22px;
+            border-radius: 18px;
             transition: all 0.3s ease;
             display: flex;
             flex-direction: column;
@@ -394,21 +445,21 @@
         .prof-header {
             display: flex;
             align-items: center;
-            gap: 15px;
-            margin-bottom: 15px;
+            gap: 14px;
+            margin-bottom: 14px;
         }
 
         .prof-avatar {
-            width: 52px;
-            height: 52px;
-            border-radius: 14px;
-            background: linear-gradient(135deg, #1F1F2C, #2E2E40);
+            width: 50px;
+            height: 50px;
+            border-radius: 12px;
+            background: linear-gradient(135deg, #1C1C2A, #2C2C3E);
             border: 1px solid var(--border-accent);
             display: flex;
             align-items: center;
             justify-content: center;
             font-weight: 800;
-            font-size: 1.2rem;
+            font-size: 1.15rem;
             color: var(--accent-gold);
         }
 
@@ -426,7 +477,7 @@
         .prof-details {
             font-size: 0.88rem;
             color: var(--text-muted);
-            margin-bottom: 15px;
+            margin-bottom: 12px;
             display: flex;
             flex-direction: column;
             gap: 4px;
@@ -439,20 +490,42 @@
             margin-top: 6px;
         }
 
-        /* AVALIAÇÕES NO CARD DO GUILHERME */
+        /* BOTÃO ABRIR AVALIAÇÕES E CAIXA EXPANSÍVEL */
+        .btn-toggle-reviews {
+            background: rgba(255, 255, 255, 0.04);
+            border: 1px solid var(--border-card);
+            color: var(--accent-gold);
+            padding: 8px 12px;
+            border-radius: 8px;
+            font-size: 0.82rem;
+            font-weight: 700;
+            cursor: pointer;
+            margin: 10px 0;
+            width: 100%;
+            text-align: center;
+            transition: all 0.2s;
+            font-family: var(--font-main);
+        }
+
+        .btn-toggle-reviews:hover {
+            background: rgba(229, 193, 88, 0.12);
+        }
+
         .reviews-box {
-            background: #181824;
+            display: none; /* Escondido por padrão */
+            background: #161622;
             border-radius: 10px;
-            padding: 10px 12px;
-            margin: 10px 0 15px 0;
+            padding: 12px;
+            margin-bottom: 14px;
             border: 1px dashed rgba(229, 193, 88, 0.25);
+            animation: fadeIn 0.25s ease;
         }
 
         .review-item {
             font-size: 0.8rem;
             color: #D1D1DB;
-            margin-bottom: 6px;
-            line-height: 1.3;
+            margin-bottom: 8px;
+            line-height: 1.35;
         }
 
         .review-item:last-child { margin-bottom: 0; }
@@ -463,27 +536,102 @@
             font-size: 0.78rem;
         }
 
-        /* PÁGINA MAPA ARAUCÁRIA */
-        .map-container {
+        /* NOVA PÁGINA TAXA TRANSPARENTE MAIOR E COMPLETA */
+        .taxa-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+            margin-top: 20px;
+        }
+
+        .taxa-card-main {
             background: var(--bg-card);
             border: 1px solid var(--border-accent);
             border-radius: 20px;
-            padding: 20px;
-            overflow: hidden;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+            padding: 30px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
         }
 
-        .map-container iframe {
-            width: 100%;
-            height: 480px;
+        .custom-simulador {
+            background: #161622;
+            border: 1px solid var(--border-card);
+            border-radius: 16px;
+            padding: 24px;
+            margin-top: 20px;
+        }
+
+        .simulador-input-group {
+            display: flex;
+            align-items: center;
+            background: var(--bg-body);
+            border: 1px solid var(--border-accent);
             border-radius: 12px;
-            border: 0;
-            filter: grayscale(0.2) contrast(1.05);
+            padding: 6px 16px;
+            margin-top: 10px;
         }
 
-        /* PÁGINA CALCULADORA TAXA */
-        .calc-wrapper {
-            max-width: 600px;
+        .simulador-input-group span {
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: var(--accent-gold);
+            margin-right: 8px;
+        }
+
+        .simulador-input-group input {
+            width: 100%;
+            background: transparent;
+            border: none;
+            color: #fff;
+            font-size: 1.4rem;
+            font-weight: 800;
+            outline: none;
+            font-family: var(--font-main);
+        }
+
+        .preset-btns {
+            display: flex;
+            gap: 8px;
+            margin-top: 12px;
+        }
+
+        .preset-btn {
+            background: rgba(255,255,255,0.05);
+            border: 1px solid var(--border-card);
+            color: var(--text-muted);
+            padding: 6px 12px;
+            border-radius: 8px;
+            font-size: 0.8rem;
+            cursor: pointer;
+            font-weight: 600;
+        }
+
+        .preset-btn:hover {
+            border-color: var(--accent-gold);
+            color: var(--accent-gold);
+        }
+
+        .taxa-breakdown {
+            margin-top: 25px;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .breakdown-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 14px;
+            background: rgba(255, 255, 255, 0.02);
+            border-radius: 10px;
+            border-left: 3px solid var(--accent-gold);
+        }
+
+        /* FORMULÁRIO DE PRESTAR SERVIÇO / CRIAR CONTA */
+        .form-box-large {
+            max-width: 650px;
             margin: 0 auto;
             background: var(--bg-card);
             border: 1px solid var(--border-accent);
@@ -491,45 +639,113 @@
             border-radius: 24px;
         }
 
-        .calc-box {
-            display: flex;
-            flex-direction: column;
-            gap: 20px;
-            margin-top: 20px;
+        .form-grid-2 {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
         }
 
-        .calc-field input {
+        .form-group { margin-bottom: 16px; }
+
+        .form-group label {
+            display: block;
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            margin-bottom: 6px;
+            font-weight: 600;
+        }
+
+        .form-group input, .form-group textarea, .form-group select {
             width: 100%;
             background: var(--bg-body);
             border: 1px solid var(--border-card);
-            padding: 14px;
+            padding: 12px 14px;
             border-radius: 10px;
             color: #fff;
-            font-size: 1.2rem;
-            font-weight: 700;
-            text-align: center;
             outline: none;
+            font-family: var(--font-main);
+            font-size: 0.95rem;
         }
 
-        .calc-field input:focus { border-color: var(--accent-gold); }
+        .form-group input:focus, .form-group textarea:focus {
+            border-color: var(--accent-gold);
+        }
 
-        .calc-row {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 12px 0;
+        /* ÁREA ADMINISTRATIVA / EXTRATO BANCÁRIO */
+        .admin-login-box {
+            max-width: 420px;
+            margin: 40px auto;
+            background: var(--bg-card);
+            border: 1px solid var(--border-accent);
+            padding: 35px;
+            border-radius: 20px;
+            text-align: center;
+        }
+
+        .extrato-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+            font-size: 0.9rem;
+        }
+
+        .extrato-table th, .extrato-table td {
+            padding: 12px 16px;
+            text-align: left;
             border-bottom: 1px solid var(--border-card);
         }
 
-        .calc-row.total {
-            border-bottom: none;
-            color: var(--success);
-            font-size: 1.2rem;
-            font-weight: 800;
-            padding-top: 15px;
+        .extrato-table th {
+            background: #171724;
+            color: var(--accent-gold);
+            font-weight: 700;
         }
 
-        /* MODAL AGENDAMENTO */
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 15px;
+            margin-bottom: 25px;
+        }
+
+        .stat-card {
+            background: #161622;
+            border: 1px solid var(--border-card);
+            padding: 18px;
+            border-radius: 14px;
+        }
+
+        .stat-card h4 {
+            font-size: 0.8rem;
+            color: var(--text-muted);
+            margin-bottom: 5px;
+        }
+
+        .stat-card span {
+            font-size: 1.4rem;
+            font-weight: 800;
+            color: var(--accent-gold);
+        }
+
+        /* MAPA ARAUCÁRIA */
+        .map-container {
+            background: var(--bg-card);
+            border: 1px solid var(--border-accent);
+            border-radius: 20px;
+            padding: 18px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+        }
+
+        .map-container iframe {
+            width: 100%;
+            height: 450px;
+            border-radius: 12px;
+            border: 0;
+            filter: grayscale(0.2) contrast(1.05);
+        }
+
+        /* MODAL DE SOLICITAÇÃO */
         .modal-overlay {
             position: fixed;
             top: 0;
@@ -548,7 +764,7 @@
             background: var(--bg-card);
             border: 1px solid var(--border-accent);
             border-radius: 20px;
-            padding: 30px;
+            padding: 28px;
             width: 90%;
             max-width: 480px;
             position: relative;
@@ -561,26 +777,6 @@
             font-size: 1.5rem;
             color: var(--text-muted);
             cursor: pointer;
-        }
-
-        .form-group { margin-bottom: 15px; }
-
-        .form-group label {
-            display: block;
-            font-size: 0.85rem;
-            color: var(--text-muted);
-            margin-bottom: 6px;
-        }
-
-        .form-group input, .form-group textarea {
-            width: 100%;
-            background: var(--bg-body);
-            border: 1px solid var(--border-card);
-            padding: 10px 14px;
-            border-radius: 8px;
-            color: #fff;
-            outline: none;
-            font-family: var(--font-main);
         }
 
         /* TOAST NOTIFICAÇÃO */
@@ -607,27 +803,30 @@
 
         footer {
             border-top: 1px solid var(--border-card);
-            padding: 40px 7%;
+            padding: 35px 6%;
             text-align: center;
             color: var(--text-muted);
-            font-size: 0.9rem;
+            font-size: 0.88rem;
             margin-top: 40px;
         }
 
         .team-tags {
             display: flex;
             justify-content: center;
-            gap: 15px;
+            gap: 12px;
             flex-wrap: wrap;
-            margin-top: 10px;
+            margin-top: 8px;
             color: var(--accent-gold);
             font-weight: 700;
         }
 
         @media (max-width: 900px) {
             .hero { grid-template-columns: 1fr; text-align: center; }
-            .hero p { margin: 0 auto 30px auto; }
+            .hero p { margin: 0 auto 25px auto; }
             .cta-group { justify-content: center; }
+            .taxa-container { grid-template-columns: 1fr; }
+            .stats-grid { grid-template-columns: 1fr; }
+            .form-grid-2 { grid-template-columns: 1fr; }
             .nav-menu {
                 display: none;
                 flex-direction: column;
@@ -636,7 +835,7 @@
                 left: 0;
                 width: 100%;
                 background: var(--bg-body);
-                padding: 25px;
+                padding: 20px;
                 border-bottom: 1px solid var(--border-card);
             }
             .nav-menu.active { display: flex; }
@@ -656,9 +855,11 @@
         <nav class="nav-menu" id="navMenu">
             <button class="nav-btn active" id="btn-pag-inicio" onclick="abrirPagina('pag-inicio')">Início</button>
             <button class="nav-btn" id="btn-pag-profissionais" onclick="abrirPagina('pag-profissionais')">Profissionais</button>
-            <button class="nav-btn" id="btn-pag-como-funciona" onclick="abrirPagina('pag-como-funciona')">Como Funciona</button>
-            <button class="nav-btn" id="btn-pag-mapa" onclick="abrirPagina('pag-mapa')">Araucária</button>
+            <button class="nav-btn" id="btn-pag-trabalhar" onclick="abrirPagina('pag-trabalhar')">Quero Trabalhar</button>
             <button class="nav-btn" id="btn-pag-taxa" onclick="abrirPagina('pag-taxa')">Taxa Transparente</button>
+            <button class="nav-btn" id="btn-pag-suporte" onclick="abrirPagina('pag-suporte')">Contato & Suporte</button>
+            <button class="nav-btn" id="btn-pag-mapa" onclick="abrirPagina('pag-mapa')">Araucária</button>
+            <button class="nav-btn admin-btn" id="btn-pag-admin" onclick="abrirPagina('pag-admin')">🔒 Área Restrita</button>
         </nav>
     </header>
 
@@ -667,13 +868,13 @@
         <section class="hero">
             <div>
                 <div class="badge-tag">
-                    <span>EDUCAÇÃO FINANCEIRA • TURMA 2B</span>
+                    <span>PROJETO ESCOLAR • TURMA 2B • EDUCAÇÃO FINANCEIRA</span>
                 </div>
                 <h1>Precisou em Araucária? <br><span>ResolveAí.</span></h1>
-                <p>A plataforma local para encontrar massagistas, encanadores, eletricistas e diversos profissionais em Araucária-PR com total confiança e transparência.</p>
+                <p>Nossa plataforma foi criada por alunos de Araucária para valorizar os trabalhadores da nossa cidade, conectando moradores com profissionais locais sem intermediários abusivos.</p>
                 <div class="cta-group">
-                    <button class="btn-gold" onclick="abrirPagina('pag-profissionais')">Ver Profissionais Cadastrados</button>
-                    <button class="btn-outline" onclick="abrirPagina('pag-mapa')">Ver Região de Araucária</button>
+                    <button class="btn-gold" onclick="abrirPagina('pag-profissionais')">Encontrar Profissional</button>
+                    <button class="btn-outline" onclick="abrirPagina('pag-trabalhar')">Cadastrar Meu Serviço</button>
                 </div>
             </div>
 
@@ -681,21 +882,9 @@
                 <div class="dash-header">
                     <div class="live-badge">
                         <span class="pulse-dot"></span>
-                        <span>16 Profissionais em Araucária-PR</span>
+                        <span>48 Profissionais Ativos na Cidade</span>
                     </div>
-                    <span style="font-size: 0.8rem; color: var(--text-muted);">Taxa: 7%</span>
-                </div>
-
-                <!-- CARD GUILHERME OLIVEIRA DESTAQUE -->
-                <div class="dash-card" onclick="abrirPagina('pag-profissionais')">
-                    <div class="dash-user">
-                        <div class="dash-avatar">G</div>
-                        <div>
-                            <strong>Guilherme Oliveira</strong>
-                            <p style="font-size: 0.8rem; color: var(--text-muted);">Massagista em Casa</p>
-                        </div>
-                    </div>
-                    <span style="color: var(--accent-gold); font-weight: 700;">★ 5.0</span>
+                    <span style="font-size: 0.8rem; color: var(--accent-gold); font-weight: 700;">Taxa: 7%</span>
                 </div>
 
                 <div class="dash-card" onclick="abrirPagina('pag-profissionais')">
@@ -703,7 +892,7 @@
                         <div class="dash-avatar">L</div>
                         <div>
                             <strong>Lucas Pereira</strong>
-                            <p style="font-size: 0.8rem; color: var(--text-muted);">Encanador</p>
+                            <p style="font-size: 0.8rem; color: var(--text-muted);">Encanador • Centro</p>
                         </div>
                     </div>
                     <span style="color: var(--accent-gold); font-weight: 700;">★ 4.9</span>
@@ -714,10 +903,21 @@
                         <div class="dash-avatar">M</div>
                         <div>
                             <strong>Marcos Silva</strong>
-                            <p style="font-size: 0.8rem; color: var(--text-muted);">Eletricista</p>
+                            <p style="font-size: 0.8rem; color: var(--text-muted);">Eletricista • Costeira</p>
                         </div>
                     </div>
                     <span style="color: var(--accent-gold); font-weight: 700;">★ 4.9</span>
+                </div>
+
+                <div class="dash-card" onclick="abrirPagina('pag-profissionais')">
+                    <div class="dash-user">
+                        <div class="dash-avatar">A</div>
+                        <div>
+                            <strong>Ana Oliveira</strong>
+                            <p style="font-size: 0.8rem; color: var(--text-muted);">Diarista • Campina da Barra</p>
+                        </div>
+                    </div>
+                    <span style="color: var(--accent-gold); font-weight: 700;">★ 4.8</span>
                 </div>
             </div>
         </section>
@@ -727,28 +927,227 @@
     <main id="pag-profissionais" class="pagina">
         <div class="section-container">
             <button class="btn-voltar" onclick="abrirPagina('pag-inicio')">← Voltar ao Início</button>
-            
+
             <div class="section-title">
-                <h2>Profissionais Cadastrados</h2>
-                <p>Escolha o serviço desejado ou veja os detalhes dos prestadores locais</p>
+                <h2>Profissionais em Araucária</h2>
+                <p>Pesquise pelo nome ou função para encontrar prestadores de serviço locais</p>
             </div>
 
-            <!-- FILTROS POR CATEGORIA -->
+            <!-- CAMPO DE PESQUISA -->
+            <div class="search-box-wrapper">
+                <span class="search-icon">🔍</span>
+                <input type="text" id="searchInput" placeholder="Digite para buscar (ex: Guilherme, encanador, eletricista, massagista...)" onkeyup="filtrarPorBusca()">
+            </div>
+
+            <!-- FILTROS DE CATEGORIA -->
             <div class="filter-tabs">
-                <button class="tab-btn active" onclick="filtrar('todos', this)">Todos (16)</button>
-                <button class="tab-btn" onclick="filtrar('bem-estar', this)">Saúde & Bem-Estar</button>
-                <button class="tab-btn" onclick="filtrar('casa', this)">Manutenção & Casa</button>
-                <button class="tab-btn" onclick="filtrar('limpeza', this)">Limpeza</button>
-                <button class="tab-btn" onclick="filtrar('tech', this)">Tecnologia</button>
-                <button class="tab-btn" onclick="filtrar('pets', this)">Pets</button>
-                <button class="tab-btn" onclick="filtrar('auto', this)">Veículos</button>
+                <button class="tab-btn active" onclick="filtrarCategoria('todos', this)">Todos</button>
+                <button class="tab-btn" onclick="filtrarCategoria('casa', this)">Manutenção & Casa</button>
+                <button class="tab-btn" onclick="filtrarCategoria('bem-estar', this)">Saúde & Bem-Estar</button>
+                <button class="tab-btn" onclick="filtrarCategoria('limpeza', this)">Limpeza</button>
+                <button class="tab-btn" onclick="filtrarCategoria('tech', this)">Tecnologia</button>
+                <button class="tab-btn" onclick="filtrarCategoria('pets', this)">Pets</button>
+                <button class="tab-btn" onclick="filtrarCategoria('auto', this)">Veículos</button>
             </div>
 
-            <!-- GRID DE PROFISSIONAIS -->
-            <div class="prof-grid">
+            <!-- GRID COM PROFISSIONAIS (GUILHERME NO FINAL DA LISTA) -->
+            <div class="prof-grid" id="profGrid">
 
-                <!-- GUILHERME OLIVEIRA (MASSAGISTA EM CASA + NOTAS DAS DONAS) -->
-                <div class="prof-card" data-cat="bem-estar">
+                <!-- 1. ENCANADOR -->
+                <div class="prof-card" data-cat="casa" data-nome="lucas pereira encanador">
+                    <div>
+                        <div class="prof-header">
+                            <div class="prof-avatar">L</div>
+                            <div class="prof-info">
+                                <h3>Lucas Pereira</h3>
+                                <span class="prof-tag">Encanador</span>
+                            </div>
+                        </div>
+                        <div class="prof-details">
+                            <span>★ 4.9 (34 avaliações)</span>
+                            <span>📍 Atendimento Residencial - Araucária</span>
+                            <span>Conserto simples de vazamentos, desentupimento e troca de torneiras.</span>
+                            <div class="prof-price">A partir de R$ 85,00</div>
+                        </div>
+                        <button class="btn-toggle-reviews" onclick="toggleReviews(this)">💬 Ver Avaliações do Encanador</button>
+                        <div class="reviews-box">
+                            <div class="review-item"><span class="review-author">Seu Roberto:</span> "Chegou no horário e trocou o cano da pia rapidinho."</div>
+                            <div class="review-item"><span class="review-author">Clara S.:</span> "Preço justo e serviço muito limpo!"</div>
+                        </div>
+                    </div>
+                    <button class="btn-gold" onclick="abrirModal('Lucas Pereira', 'Encanador', 85)">Solicitar Encanador</button>
+                </div>
+
+                <!-- 2. ELETRICISTA -->
+                <div class="prof-card" data-cat="casa" data-nome="marcos silva eletricista">
+                    <div>
+                        <div class="prof-header">
+                            <div class="prof-avatar">M</div>
+                            <div class="prof-info">
+                                <h3>Marcos Silva</h3>
+                                <span class="prof-tag">Eletricista</span>
+                            </div>
+                        </div>
+                        <div class="prof-details">
+                            <span>★ 4.9 (42 avaliações)</span>
+                            <span>📍 Araucária - PR</span>
+                            <span>Instalação de tomadas, chuveiros elétricos e reparos de fiação.</span>
+                            <div class="prof-price">A partir de R$ 80,00</div>
+                        </div>
+                        <button class="btn-toggle-reviews" onclick="toggleReviews(this)">💬 Ver Avaliações</button>
+                        <div class="reviews-box">
+                            <div class="review-item"><span class="review-author">Márcio T.:</span> "Instalou o chuveiro perfeitamente, recomendo!"</div>
+                        </div>
+                    </div>
+                    <button class="btn-gold" onclick="abrirModal('Marcos Silva', 'Eletricista', 80)">Solicitar Eletricista</button>
+                </div>
+
+                <!-- 3. DIARISTA -->
+                <div class="prof-card" data-cat="limpeza" data-nome="ana oliveira diarista">
+                    <div>
+                        <div class="prof-header">
+                            <div class="prof-avatar">A</div>
+                            <div class="prof-info">
+                                <h3>Ana Oliveira</h3>
+                                <span class="prof-tag">Diarista</span>
+                            </div>
+                        </div>
+                        <div class="prof-details">
+                            <span>★ 4.8 (50 avaliações)</span>
+                            <span>📍 Centro / Costeira</span>
+                            <span>Limpeza geral de casas e apartamentos na região.</span>
+                            <div class="prof-price">A partir de R$ 120,00</div>
+                        </div>
+                        <button class="btn-toggle-reviews" onclick="toggleReviews(this)">💬 Ver Avaliações</button>
+                        <div class="reviews-box">
+                            <div class="review-item"><span class="review-author">Juliana P.:</span> "Muito caprichosa com a casa!"</div>
+                        </div>
+                    </div>
+                    <button class="btn-gold" onclick="abrirModal('Ana Oliveira', 'Diarista', 120)">Solicitar Diarista</button>
+                </div>
+
+                <!-- 4. TÉCNICO DE INFORMÁTICA -->
+                <div class="prof-card" data-cat="tech" data-nome="carlos eduardo tecnico informatica computador pc">
+                    <div>
+                        <div class="prof-header">
+                            <div class="prof-avatar">C</div>
+                            <div class="prof-info">
+                                <h3>Carlos Eduardo</h3>
+                                <span class="prof-tag">Técnico de Informática</span>
+                            </div>
+                        </div>
+                        <div class="prof-details">
+                            <span>★ 5.0 (29 avaliações)</span>
+                            <span>📍 Araucária - PR</span>
+                            <span>Formatação, conserto de notebook e arrumação de Wi-Fi.</span>
+                            <div class="prof-price">A partir de R$ 70,00</div>
+                        </div>
+                        <button class="btn-toggle-reviews" onclick="toggleReviews(this)">💬 Ver Avaliações</button>
+                        <div class="reviews-box">
+                            <div class="review-item"><span class="review-author">Igor M.:</span> "Resolveu o problema do meu computador no mesmo dia."</div>
+                        </div>
+                    </div>
+                    <button class="btn-gold" onclick="abrirModal('Carlos Eduardo', 'Técnico de Informática', 70)">Solicitar Técnico</button>
+                </div>
+
+                <!-- 5. JARDINEIRO -->
+                <div class="prof-card" data-cat="casa" data-nome="rodrigo mendes jardineiro grama">
+                    <div>
+                        <div class="prof-header">
+                            <div class="prof-avatar">R</div>
+                            <div class="prof-info">
+                                <h3>Rodrigo Mendes</h3>
+                                <span class="prof-tag">Jardineiro</span>
+                            </div>
+                        </div>
+                        <div class="prof-details">
+                            <span>★ 4.7 (19 avaliações)</span>
+                            <span>📍 Bairros de Araucária</span>
+                            <span>Corte de grama e limpeza simples de quintal.</span>
+                            <div class="prof-price">A partir de R$ 100,00</div>
+                        </div>
+                        <button class="btn-toggle-reviews" onclick="toggleReviews(this)">💬 Ver Avaliações</button>
+                        <div class="reviews-box">
+                            <div class="review-item"><span class="review-author">Dona Dirce:</span> "Deixou o quintal muito organizado."</div>
+                        </div>
+                    </div>
+                    <button class="btn-gold" onclick="abrirModal('Rodrigo Mendes', 'Jardineiro', 100)">Solicitar Jardineiro</button>
+                </div>
+
+                <!-- 6. CHAVEIRO -->
+                <div class="prof-card" data-cat="casa" data-nome="gabriel alves chaveiro fechadura">
+                    <div>
+                        <div class="prof-header">
+                            <div class="prof-avatar">G</div>
+                            <div class="prof-info">
+                                <h3>Gabriel Alves</h3>
+                                <span class="prof-tag">Chaveiro</span>
+                            </div>
+                        </div>
+                        <div class="prof-details">
+                            <span>★ 4.9 (61 avaliações)</span>
+                            <span>📍 Araucária - PR</span>
+                            <span>Abertura de portas residenciais e cópia de chaves.</span>
+                            <div class="prof-price">A partir de R$ 50,00</div>
+                        </div>
+                        <button class="btn-toggle-reviews" onclick="toggleReviews(this)">💬 Ver Avaliações</button>
+                        <div class="reviews-box">
+                            <div class="review-item"><span class="review-author">Fernanda L.:</span> "Salvou meu dia quando perdi a chave de casa!"</div>
+                        </div>
+                    </div>
+                    <button class="btn-gold" onclick="abrirModal('Gabriel Alves', 'Chaveiro', 50)">Solicitar Chaveiro</button>
+                </div>
+
+                <!-- 7. PINTORA -->
+                <div class="prof-card" data-cat="casa" data-nome="juliana costa pintora tinta">
+                    <div>
+                        <div class="prof-header">
+                            <div class="prof-avatar">J</div>
+                            <div class="prof-info">
+                                <h3>Juliana Costa</h3>
+                                <span class="prof-tag">Pintora</span>
+                            </div>
+                        </div>
+                        <div class="prof-details">
+                            <span>★ 5.0 (15 avaliações)</span>
+                            <span>📍 Araucária - PR</span>
+                            <span>Pintura de paredes internas, portas e muros.</span>
+                            <div class="prof-price">A partir de R$ 150,00</div>
+                        </div>
+                        <button class="btn-toggle-reviews" onclick="toggleReviews(this)">💬 Ver Avaliações</button>
+                        <div class="reviews-box">
+                            <div class="review-item"><span class="review-author">Carla N.:</span> "Trabalho muito bem feito e sem sujeira."</div>
+                        </div>
+                    </div>
+                    <button class="btn-gold" onclick="abrirModal('Juliana Costa', 'Pintora', 150)">Solicitar Pintora</button>
+                </div>
+
+                <!-- 8. PASSEADORA DE PETS -->
+                <div class="prof-card" data-cat="pets" data-nome="beatriz santos passeadora pets cachorro">
+                    <div>
+                        <div class="prof-header">
+                            <div class="prof-avatar">B</div>
+                            <div class="prof-info">
+                                <h3>Beatriz Santos</h3>
+                                <span class="prof-tag">Passeadora de Pets</span>
+                            </div>
+                        </div>
+                        <div class="prof-details">
+                            <span>★ 4.9 (31 avaliações)</span>
+                            <span>📍 Araucária - PR</span>
+                            <span>Passeios e atenção carinhosa para o seu pet.</span>
+                            <div class="prof-price">A partir de R$ 40,00</div>
+                        </div>
+                        <button class="btn-toggle-reviews" onclick="toggleReviews(this)">💬 Ver Avaliações</button>
+                        <div class="reviews-box">
+                            <div class="review-item"><span class="review-author">Vitor H.:</span> "Trata o Rex super bem!"</div>
+                        </div>
+                    </div>
+                    <button class="btn-gold" onclick="abrirModal('Beatriz Santos', 'Passeadora de Pets', 40)">Solicitar Passeadora</button>
+                </div>
+
+                <!-- 9. GUILHERME OLIVEIRA (POSICIONADO POR ÚLTIMO NA LISTA) -->
+                <div class="prof-card" data-cat="bem-estar" data-nome="guilherme oliveira massagista em casa massagem">
                     <div>
                         <div class="prof-header">
                             <div class="prof-avatar">G</div>
@@ -764,7 +1163,9 @@
                             <div class="prof-price">A partir de R$ 90,00</div>
                         </div>
 
-                        <!-- DEPOIMENTOS DAS DONAS -->
+                        <!-- BOTÃO PARA ABRIR AVALIAÇÕES DAS DONAS -->
+                        <button class="btn-toggle-reviews" onclick="toggleReviews(this)">💬 Ver Avaliações do Massagista</button>
+                        
                         <div class="reviews-box">
                             <div class="review-item">
                                 <span class="review-author">Dona Lourdes:</span> "Nota 1000! 5 estrelas! Incrível esse massagista, tirou toda a dor das minhas costas!"
@@ -780,428 +1181,310 @@
                     <button class="btn-gold" onclick="abrirModal('Guilherme Oliveira', 'Massagista em Casa', 90)">Solicitar Massagista</button>
                 </div>
 
-                <!-- LUCAS PEREIRA (ENCANADOR) -->
-                <div class="prof-card" data-cat="casa">
-                    <div>
-                        <div class="prof-header">
-                            <div class="prof-avatar">L</div>
-                            <div class="prof-info">
-                                <h3>Lucas Pereira</h3>
-                                <span class="prof-tag">Encanador</span>
-                            </div>
-                        </div>
-                        <div class="prof-details">
-                            <span>★ 4.9 (34 avaliações)</span>
-                            <span>📍 Atendimento em Casa</span>
-                            <span>Reparo simples de vazamentos, desentupimentos, pias e torneiras.</span>
-                            <div class="prof-price">A partir de R$ 85,00</div>
-                        </div>
-                    </div>
-                    <button class="btn-gold" onclick="abrirModal('Lucas Pereira', 'Encanador', 85)">Solicitar Encanador</button>
-                </div>
-
-                <!-- MARCOS SILVA (ELETRICISTA) -->
-                <div class="prof-card" data-cat="casa">
-                    <div>
-                        <div class="prof-header">
-                            <div class="prof-avatar">M</div>
-                            <div class="prof-info">
-                                <h3>Marcos Silva</h3>
-                                <span class="prof-tag">Eletricista</span>
-                            </div>
-                        </div>
-                        <div class="prof-details">
-                            <span>★ 4.9 (42 avaliações)</span>
-                            <span>📍 Araucária - PR</span>
-                            <span>Instalação de tomadas, chuveiros e reparo de fiação simples.</span>
-                            <div class="prof-price">A partir de R$ 80,00</div>
-                        </div>
-                    </div>
-                    <button class="btn-gold" onclick="abrirModal('Marcos Silva', 'Eletricista', 80)">Solicitar Eletricista</button>
-                </div>
-
-                <!-- ANA OLIVEIRA (DIARISTA) -->
-                <div class="prof-card" data-cat="limpeza">
-                    <div>
-                        <div class="prof-header">
-                            <div class="prof-avatar">A</div>
-                            <div class="prof-info">
-                                <h3>Ana Oliveira</h3>
-                                <span class="prof-tag">Diarista</span>
-                            </div>
-                        </div>
-                        <div class="prof-details">
-                            <span>★ 4.8 (50 avaliações)</span>
-                            <span>📍 Centro - Araucária</span>
-                            <span>Limpeza residencial e organização de ambientes.</span>
-                            <div class="prof-price">A partir de R$ 120,00</div>
-                        </div>
-                    </div>
-                    <button class="btn-gold" onclick="abrirModal('Ana Oliveira', 'Diarista', 120)">Solicitar Diarista</button>
-                </div>
-
-                <!-- CARLOS EDUARDO (TÉCNICO DE INFORMÁTICA) -->
-                <div class="prof-card" data-cat="tech">
-                    <div>
-                        <div class="prof-header">
-                            <div class="prof-avatar">C</div>
-                            <div class="prof-info">
-                                <h3>Carlos Eduardo</h3>
-                                <span class="prof-tag">Técnico de Informática</span>
-                            </div>
-                        </div>
-                        <div class="prof-details">
-                            <span>★ 5.0 (29 avaliações)</span>
-                            <span>📍 Araucária - PR</span>
-                            <span>Manutenção de computadores, notebooks e internet Wi-Fi.</span>
-                            <div class="prof-price">A partir de R$ 70,00</div>
-                        </div>
-                    </div>
-                    <button class="btn-gold" onclick="abrirModal('Carlos Eduardo', 'Técnico de Informática', 70)">Solicitar Técnico</button>
-                </div>
-
-                <!-- BEATRIZ SANTOS (PASSEADORA DE PETS) -->
-                <div class="prof-card" data-cat="pets">
-                    <div>
-                        <div class="prof-header">
-                            <div class="prof-avatar">B</div>
-                            <div class="prof-info">
-                                <h3>Beatriz Santos</h3>
-                                <span class="prof-tag">Passeadora de Pets</span>
-                            </div>
-                        </div>
-                        <div class="prof-details">
-                            <span>★ 4.9 (31 avaliações)</span>
-                            <span>📍 Araucária - PR</span>
-                            <span>Passeios e cuidados diários para o seu cão.</span>
-                            <div class="prof-price">A partir de R$ 40,00</div>
-                        </div>
-                    </div>
-                    <button class="btn-gold" onclick="abrirModal('Beatriz Santos', 'Passeadora de Pets', 40)">Solicitar Passeadora</button>
-                </div>
-
-                <!-- RODRIGO MENDES (JARDINEIRO) -->
-                <div class="prof-card" data-cat="casa">
-                    <div>
-                        <div class="prof-header">
-                            <div class="prof-avatar">R</div>
-                            <div class="prof-info">
-                                <h3>Rodrigo Mendes</h3>
-                                <span class="prof-tag">Jardineiro</span>
-                            </div>
-                        </div>
-                        <div class="prof-details">
-                            <span>★ 4.7 (19 avaliações)</span>
-                            <span>📍 Atendimento Local</span>
-                            <span>Corte de grama e limpeza de quintal.</span>
-                            <div class="prof-price">A partir de R$ 100,00</div>
-                        </div>
-                    </div>
-                    <button class="btn-gold" onclick="abrirModal('Rodrigo Mendes', 'Jardineiro', 100)">Solicitar Jardineiro</button>
-                </div>
-
-                <!-- FERNANDO SOUZA (MECÂNICO) -->
-                <div class="prof-card" data-cat="auto">
-                    <div>
-                        <div class="prof-header">
-                            <div class="prof-avatar">F</div>
-                            <div class="prof-info">
-                                <h3>Fernando Souza</h3>
-                                <span class="prof-tag">Mecânico</span>
-                            </div>
-                        </div>
-                        <div class="prof-details">
-                            <span>★ 4.8 (27 avaliações)</span>
-                            <span>📍 Socorro Local</span>
-                            <span>Troca de pneus, baterias e pequenos reparos no local.</span>
-                            <div class="prof-price">A partir de R$ 60,00</div>
-                        </div>
-                    </div>
-                    <button class="btn-gold" onclick="abrirModal('Fernando Souza', 'Mecânico', 60)">Solicitar Mecânico</button>
-                </div>
-
-                <!-- JULIANA COSTA (PINTORA) -->
-                <div class="prof-card" data-cat="casa">
-                    <div>
-                        <div class="prof-header">
-                            <div class="prof-avatar">J</div>
-                            <div class="prof-info">
-                                <h3>Juliana Costa</h3>
-                                <span class="prof-tag">Pintora</span>
-                            </div>
-                        </div>
-                        <div class="prof-details">
-                            <span>★ 5.0 (15 avaliações)</span>
-                            <span>📍 Araucária - PR</span>
-                            <span>Pintura de paredes, portas e muros.</span>
-                            <div class="prof-price">A partir de R$ 150,00</div>
-                        </div>
-                    </div>
-                    <button class="btn-gold" onclick="abrirModal('Juliana Costa', 'Pintora', 150)">Solicitar Pintora</button>
-                </div>
-
-                <!-- CAMILA RAMOS (LAVADORA DE ESTOFADOS) -->
-                <div class="prof-card" data-cat="limpeza">
-                    <div>
-                        <div class="prof-header">
-                            <div class="prof-avatar">C</div>
-                            <div class="prof-info">
-                                <h3>Camila Ramos</h3>
-                                <span class="prof-tag">Lavadora de Estofados</span>
-                            </div>
-                        </div>
-                        <div class="prof-details">
-                            <span>★ 4.9 (22 avaliações)</span>
-                            <span>📍 Atendimento em Casa</span>
-                            <span>Higienização e lavagem de sofás e colchões.</span>
-                            <div class="prof-price">A partir de R$ 110,00</div>
-                        </div>
-                    </div>
-                    <button class="btn-gold" onclick="abrirModal('Camila Ramos', 'Lavadora de Estofados', 110)">Solicitar Serviço</button>
-                </div>
-
-                <!-- RAFAEL LIMA (TÉCNICO DE PC) -->
-                <div class="prof-card" data-cat="tech">
-                    <div>
-                        <div class="prof-header">
-                            <div class="prof-avatar">R</div>
-                            <div class="prof-info">
-                                <h3>Rafael Lima</h3>
-                                <span class="prof-tag">Técnico de PC</span>
-                            </div>
-                        </div>
-                        <div class="prof-details">
-                            <span>★ 5.0 (40 avaliações)</span>
-                            <span>📍 Araucária - PR</span>
-                            <span>Formatação e limpeza interna de computadores.</span>
-                            <div class="prof-price">A partir de R$ 75,00</div>
-                        </div>
-                    </div>
-                    <button class="btn-gold" onclick="abrirModal('Rafael Lima', 'Técnico de PC', 75)">Solicitar Serviço</button>
-                </div>
-
-                <!-- VANESSA ROCHA (ADESTRADORA) -->
-                <div class="prof-card" data-cat="pets">
-                    <div>
-                        <div class="prof-header">
-                            <div class="prof-avatar">V</div>
-                            <div class="prof-info">
-                                <h3>Vanessa Rocha</h3>
-                                <span class="prof-tag">Adestradora</span>
-                            </div>
-                        </div>
-                        <div class="prof-details">
-                            <span>★ 4.8 (18 avaliações)</span>
-                            <span>📍 Atendimento em Casa</span>
-                            <span>Treinamento básico de obediência para cães.</span>
-                            <div class="prof-price">A partir de R$ 95,00</div>
-                        </div>
-                    </div>
-                    <button class="btn-gold" onclick="abrirModal('Vanessa Rocha', 'Adestradora', 95)">Solicitar Adestradora</button>
-                </div>
-
-                <!-- GABRIEL ALVES (CHAVEIRO) -->
-                <div class="prof-card" data-cat="casa">
-                    <div>
-                        <div class="prof-header">
-                            <div class="prof-avatar">G</div>
-                            <div class="prof-info">
-                                <h3>Gabriel Alves</h3>
-                                <span class="prof-tag">Chaveiro</span>
-                            </div>
-                        </div>
-                        <div class="prof-details">
-                            <span>★ 4.9 (61 avaliações)</span>
-                            <span>📍 Atendimento em Araucária</span>
-                            <span>Abertura de fechaduras e cópia de chaves.</span>
-                            <div class="prof-price">A partir de R$ 50,00</div>
-                        </div>
-                    </div>
-                    <button class="btn-gold" onclick="abrirModal('Gabriel Alves', 'Chaveiro', 50)">Solicitar Chaveiro</button>
-                </div>
-
-                <!-- MARIANA DIAS (ORGANIZADORA) -->
-                <div class="prof-card" data-cat="limpeza">
-                    <div>
-                        <div class="prof-header">
-                            <div class="prof-avatar">M</div>
-                            <div class="prof-info">
-                                <h3>Mariana Dias</h3>
-                                <span class="prof-tag">Organizadora</span>
-                            </div>
-                        </div>
-                        <div class="prof-details">
-                            <span>★ 5.0 (14 avaliações)</span>
-                            <span>📍 Araucária - PR</span>
-                            <span>Organização de closets, guarda-roupas e cômodos.</span>
-                            <div class="prof-price">A partir de R$ 130,00</div>
-                        </div>
-                    </div>
-                    <button class="btn-gold" onclick="abrirModal('Mariana Dias', 'Organizadora', 130)">Solicitar Organizadora</button>
-                </div>
-
-                <!-- FELIPE CASTRO (LAVADOR DE CARROS) -->
-                <div class="prof-card" data-cat="auto">
-                    <div>
-                        <div class="prof-header">
-                            <div class="prof-avatar">F</div>
-                            <div class="prof-info">
-                                <h3>Felipe Castro</h3>
-                                <span class="prof-tag">Lavador de Carros</span>
-                            </div>
-                        </div>
-                        <div class="prof-details">
-                            <span>★ 4.9 (28 avaliações)</span>
-                            <span>📍 Lavagem em Casa</span>
-                            <span>Lavagem e limpeza automotiva ao domicílio.</span>
-                            <div class="prof-price">A partir de R$ 100,00</div>
-                        </div>
-                    </div>
-                    <button class="btn-gold" onclick="abrirModal('Felipe Castro', 'Lavador de Carros', 100)">Solicitar Serviço</button>
-                </div>
-
-                <!-- LARISSA MARTINS (PERSONAL TRAINER) -->
-                <div class="prof-card" data-cat="bem-estar">
-                    <div>
-                        <div class="prof-header">
-                            <div class="prof-avatar">L</div>
-                            <div class="prof-info">
-                                <h3>Larissa Martins</h3>
-                                <span class="prof-tag">Personal Trainer</span>
-                            </div>
-                        </div>
-                        <div class="prof-details">
-                            <span>★ 5.0 (25 avaliações)</span>
-                            <span>📍 Parques e Condomínios de Araucária</span>
-                            <span>Acompanhamento para exercícios e postura.</span>
-                            <div class="prof-price">A partir de R$ 80,00</div>
-                        </div>
-                    </div>
-                    <button class="btn-gold" onclick="abrirModal('Larissa Martins', 'Personal Trainer', 80)">Solicitar Personal</button>
-                </div>
-
             </div>
         </div>
     </main>
 
-    <!-- PÁGINA 3: COMO FUNCIONA -->
-    <main id="pag-como-funciona" class="pagina">
+    <!-- PÁGINA 3: QUERO TRABALHAR / CRIAR CONTA PRESTADOR -->
+    <main id="pag-trabalhar" class="pagina">
         <div class="section-container">
             <button class="btn-voltar" onclick="abrirPagina('pag-inicio')">← Voltar ao Início</button>
             
             <div class="section-title">
-                <h2>Como Funciona a Plataforma</h2>
-                <p>Processo simples, prático e focado na facilidade do morador de Araucária</p>
+                <h2>Cadastre-se como Prestador de Serviço</h2>
+                <p>Você trabalha em Araucária? Faça parte da nossa plataforma sem mensalidades</p>
             </div>
 
-            <div class="prof-grid">
-                <div class="prof-card">
-                    <div style="font-size: 2.2rem; color: var(--accent-gold); font-weight: 800; margin-bottom: 10px;">01</div>
-                    <h3>1. Escolha o Profissional</h3>
-                    <p style="color: var(--text-muted); font-size: 0.95rem; margin-top: 10px;">Navegue pela lista de profissionais cadastrados na cidade de Araucária de acordo com sua necessidade.</p>
+            <div class="form-box-large">
+                <form onsubmit="cadastrarTrabalhador(event)">
+                    <div class="form-grid-2">
+                        <div class="form-group">
+                            <label>Seu Nome Completo:</label>
+                            <input type="text" placeholder="Ex: João da Silva" required>
+                        </div>
+                        <div class="form-group">
+                            <label>Sua Função / Profissão Simples:</label>
+                            <input type="text" placeholder="Ex: Encanador, Diarista, Pintor..." required>
+                        </div>
+                    </div>
+
+                    <div class="form-grid-2">
+                        <div class="form-group">
+                            <label>Seu Telefone / WhatsApp:</label>
+                            <input type="text" placeholder="(41) 99999-0000" required>
+                        </div>
+                        <div class="form-group">
+                            <label>Seu Bairro em Araucária:</label>
+                            <input type="text" placeholder="Ex: Centro, Costeira, Tindiquera" required>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Valor Base do seu Serviço (R$):</label>
+                        <input type="number" placeholder="Ex: 80" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Conte um pouco sobre seu trabalho:</label>
+                        <textarea rows="3" placeholder="Ex: Faço pequenos consertos residenciais com capricho e pontualidade..."></textarea>
+                    </div>
+
+                    <button type="submit" class="btn-gold" style="width: 100%; margin-top: 10px;">Enviar Meu Cadastro</button>
+                </form>
+            </div>
+        </div>
+    </main>
+
+    <!-- PÁGINA 4: TAXA TRANSPARENTE REDESENHADA -->
+    <main id="pag-taxa" class="pagina">
+        <div class="section-container">
+            <button class="btn-voltar" onclick="abrirPagina('pag-inicio')">← Voltar ao Início</button>
+            
+            <div class="section-title">
+                <h2>O Modelo da Taxa Transparente (7%)</h2>
+                <p>Entenda para onde vai cada centavo e por que nosso modelo apoia os trabalhadores de Araucária</p>
+            </div>
+
+            <div class="taxa-container">
+                <div class="taxa-card-main">
+                    <div>
+                        <h3 style="color: var(--accent-gold); font-size: 1.5rem; margin-bottom: 12px;">Por que apenas 7%?</h3>
+                        <p style="color: var(--text-muted); margin-bottom: 15px;">
+                            Grandes aplicativos das capitais cobram até 30% dos trabalhadores ou cobram mensalidades caras. No <strong>ResolveAí</strong>, mantemos uma taxa mínima fixa de 7% só para cobrir os custos da plataforma.
+                        </p>
+                        <p style="color: var(--text-muted);">
+                            O trabalhador fica com <strong>93% do valor</strong> direto no bolso.
+                        </p>
+                    </div>
+
+                    <div class="taxa-breakdown">
+                        <div class="breakdown-row">
+                            <span>93% Direto para o Trabalhador</span>
+                            <strong style="color: var(--success);">Renda Justa</strong>
+                        </div>
+                        <div class="breakdown-row">
+                            <span>5% Manutenção do Site e Servidor</span>
+                            <strong style="color: var(--accent-gold);">Tecnologia</strong>
+                        </div>
+                        <div class="breakdown-row">
+                            <span>2% Fundo do Projeto Escolar (Turma 2B)</span>
+                            <strong style="color: #6C5CE7;">Educação</strong>
+                        </div>
+                    </div>
                 </div>
-                <div class="prof-card">
-                    <div style="font-size: 2.2rem; color: var(--accent-gold); font-weight: 800; margin-bottom: 10px;">02</div>
-                    <h3>2. Confira Avaliações</h3>
-                    <p style="color: var(--text-muted); font-size: 0.95rem; margin-top: 10px;">Veja depoimentos e notas deixadas por outros clientes e moradores da região.</p>
-                </div>
-                <div class="prof-card">
-                    <div style="font-size: 2.2rem; color: var(--accent-gold); font-weight: 800; margin-bottom: 10px;">03</div>
-                    <h3>3. Agende o Atendimento</h3>
-                    <p style="color: var(--text-muted); font-size: 0.95rem; margin-top: 10px;">Clique em solicitar, informe seu endereço e detalhes do pedido sem complicação.</p>
-                </div>
-                <div class="prof-card">
-                    <div style="font-size: 2.2rem; color: var(--accent-gold); font-weight: 800; margin-bottom: 10px;">04</div>
-                    <h3>4. Serviço Realizado</h3>
-                    <p style="color: var(--text-muted); font-size: 0.95rem; margin-top: 10px;">O profissional atende em sua residência com a garantia e facilidade do ResolveAí.</p>
+
+                <div class="taxa-card-main">
+                    <h3 style="font-size: 1.3rem;">Simulador de Transparência</h3>
+                    <p style="color: var(--text-muted); font-size: 0.9rem;">Simule o valor de qualquer serviço prestado na cidade:</p>
+
+                    <div class="custom-simulador">
+                        <label style="font-size: 0.85rem; color: var(--text-muted);">Digite ou escolha o valor do serviço:</label>
+                        <div class="simulador-input-group">
+                            <span>R$</span>
+                            <input type="number" id="simVal" value="100" oninput="calcularTaxaPersonalizada()">
+                        </div>
+
+                        <div class="preset-btns">
+                            <button class="preset-btn" onclick="setSimVal(50)">R$ 50</button>
+                            <button class="preset-btn" onclick="setSimVal(100)">R$ 100</button>
+                            <button class="preset-btn" onclick="setSimVal(150)">R$ 150</button>
+                            <button class="preset-btn" onclick="setSimVal(200)">R$ 200</button>
+                        </div>
+
+                        <div style="margin-top: 25px; border-top: 1px solid var(--border-card); padding-top: 15px;">
+                            <div style="display: flex; justify-content: space-between; margin-bottom: 8px;">
+                                <span>Taxa ResolveAí (7%):</span>
+                                <strong id="simTaxa" style="color: var(--accent-gold);">R$ 7,00</strong>
+                            </div>
+                            <div style="display: flex; justify-content: space-between; font-size: 1.15rem;">
+                                <span>O Profissional Recebe:</span>
+                                <strong id="simLivre" style="color: var(--success);">R$ 93,00</strong>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
     </main>
 
-    <!-- PÁGINA 4: ARAUCÁRIA (MAPA) -->
+    <!-- PÁGINA 5: SUPORTE & CONTATO -->
+    <main id="pag-suporte" class="pagina">
+        <div class="section-container">
+            <button class="btn-voltar" onclick="abrirPagina('pag-inicio')">← Voltar ao Início</button>
+            
+            <div class="section-title">
+                <h2>Contato e Suporte ao Cliente</h2>
+                <p>Precisa de ajuda ou quer tirar dúvidas sobre os serviços em Araucária?</p>
+            </div>
+
+            <div class="prof-grid" style="max-width: 900px; margin: 0 auto;">
+                <div class="prof-card">
+                    <h3>📱 WhatsApp da Equipe</h3>
+                    <p style="color: var(--text-muted); margin: 10px 0;">Atendimento rápido direto com os alunos responsáveis pelo projeto.</p>
+                    <p style="color: var(--accent-gold); font-weight: 800; font-size: 1.1rem;">(41) 99876-5432</p>
+                </div>
+
+                <div class="prof-card">
+                    <h3>📧 E-mail Oficial</h3>
+                    <p style="color: var(--text-muted); margin: 10px 0;">Envie sugestões ou reporte algum problema com prestadores.</p>
+                    <p style="color: var(--accent-gold); font-weight: 800; font-size: 1rem;">contato@resolveai-araucaria.com.br</p>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- PÁGINA 6: MAPA ARAUCÁRIA -->
     <main id="pag-mapa" class="pagina">
         <div class="section-container">
             <button class="btn-voltar" onclick="abrirPagina('pag-inicio')">← Voltar ao Início</button>
             
             <div class="section-title">
-                <h2>Região de Atendimento — Araucária PR</h2>
-                <p>Nossa plataforma conecta prestadores e moradores em todos os bairros da cidade</p>
+                <h2>Localização — Araucária PR</h2>
+                <p>Plataforma focada no município de Araucária e seus bairros</p>
             </div>
 
-            <!-- MAPA DE ARAUCÁRIA -->
             <div class="map-container">
                 <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d115165.41552832357!2d-49.38561285!3d-25.574353649999995!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94dd02f54dadbe6b%3A0xb140cbe0e164b0f4!2zQXJhdWPDoXJpYSwgUFI!5e0!3m2!1spt-BR!2sbr!4v1787258420596!5m2!1spt-BR!2sbr" allowfullscreen="" loading="lazy" referrerpolicy="strict-origin-when-cross-origin"></iframe>
             </div>
         </div>
     </main>
 
-    <!-- PÁGINA 5: TAXA TRANSPARENTE -->
-    <main id="pag-taxa" class="pagina">
+    <!-- PÁGINA 7: ÁREA ADMINISTRATIVA / EXTRATO BANCÁRIO (PROTEGIDA POR LOGIN) -->
+    <main id="pag-admin" class="pagina">
         <div class="section-container">
             <button class="btn-voltar" onclick="abrirPagina('pag-inicio')">← Voltar ao Início</button>
-            
-            <div class="section-title">
-                <h2>Modelo Financeiro Transparente</h2>
-                <p>Projeto de Educação Financeira com taxa fixa de apenas 7% sobre os serviços</p>
+
+            <!-- FORMULÁRIO DE LOGIN (APARECE SE NÃO TIVER LOGADO) -->
+            <div id="adminLoginForm" class="admin-login-box">
+                <h3 style="margin-bottom: 8px;">Acesso do Administrador</h3>
+                <p style="color: var(--text-muted); font-size: 0.85rem; margin-bottom: 20px;">Área restrita para visualização do extrato bancário do projeto.</p>
+                
+                <div class="form-group" style="text-align: left;">
+                    <label>E-mail do ADM:</label>
+                    <input type="email" id="adminEmail" placeholder="resolveai@gmail.com">
+                </div>
+                <div class="form-group" style="text-align: left;">
+                    <label>Senha:</label>
+                    <input type="password" id="adminSenha" placeholder="••••••••">
+                </div>
+
+                <button class="btn-gold" style="width: 100%; margin-top: 10px;" onclick="autenticarAdmin()">Entrar no Extrato</button>
             </div>
 
-            <div class="calc-wrapper">
-                <h3 style="text-align: center; margin-bottom: 15px;">Simulador de Repasse</h3>
-                <div class="calc-box">
-                    <div class="calc-field">
-                        <label style="font-size: 0.85rem; color: var(--text-muted); display: block; margin-bottom: 5px;">Digite o Valor Total do Serviço (R$)</label>
-                        <input type="number" id="valServico" value="100" oninput="calcular()">
+            <!-- PAINEL ADMINISTRATIVO (SÓ ABRE SE A SENHA E EMAIL FOREM CORRETOS) -->
+            <div id="adminPanel" style="display: none;">
+                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 25px;">
+                    <div>
+                        <h2>Painel de Gestão & Extrato Bancário</h2>
+                        <p style="color: var(--text-muted);">Conta PJ ResolveAí Araucária • Educação Financeira</p>
                     </div>
-                    <div class="calc-row">
-                        <span>Taxa da Plataforma ResolveAí (7%):</span>
-                        <strong id="valTaxa" style="color: var(--accent-gold);">R$ 7,00</strong>
+                    <button class="btn-outline" onclick="logoutAdmin()" style="padding: 8px 16px;">Sair do ADM</button>
+                </div>
+
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <h4>Faturamento Total Intermediado</h4>
+                        <span>R$ 4.850,00</span>
                     </div>
-                    <div class="calc-row total">
-                        <span>O Profissional Recebe Livre:</span>
-                        <strong id="valLivre">R$ 93,00</strong>
+                    <div class="stat-card">
+                        <h4>Receita do Site (Taxa de 7%)</h4>
+                        <span style="color: var(--success);">R$ 339,50</span>
                     </div>
+                    <div class="stat-card">
+                        <h4>Repassado aos Trabalhadores (93%)</h4>
+                        <span style="color: #6C5CE7;">R$ 4.510,50</span>
+                    </div>
+                </div>
+
+                <h3 style="margin-bottom: 12px;">Extrato de Movimentações Recentes</h3>
+                <div style="overflow-x: auto;">
+                    <table class="extrato-table">
+                        <thead>
+                            <tr>
+                                <th>Data</th>
+                                <th>Cliente / Profissional</th>
+                                <th>Serviço</th>
+                                <th>Valor Total</th>
+                                <th>Taxa 7% (Site)</th>
+                                <th>Repasse Profissional</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>20/08/2026</td>
+                                <td>Dona Lourdes ➔ Guilherme Oliveira</td>
+                                <td>Massagem em Casa</td>
+                                <td>R$ 90,00</td>
+                                <td style="color: var(--accent-gold);">R$ 6,30</td>
+                                <td style="color: var(--success);">R$ 83,70</td>
+                            </tr>
+                            <tr>
+                                <td>20/08/2026</td>
+                                <td>Seu Roberto ➔ Lucas Pereira</td>
+                                <td>Encanador</td>
+                                <td>R$ 85,00</td>
+                                <td style="color: var(--accent-gold);">R$ 5,95</td>
+                                <td style="color: var(--success);">R$ 79,05</td>
+                            </tr>
+                            <tr>
+                                <td>19/08/2026</td>
+                                <td>Márcio T. ➔ Marcos Silva</td>
+                                <td>Eletricista</td>
+                                <td>R$ 80,00</td>
+                                <td style="color: var(--accent-gold);">R$ 5,60</td>
+                                <td style="color: var(--success);">R$ 74,40</td>
+                            </tr>
+                            <tr>
+                                <td>18/08/2026</td>
+                                <td>Juliana P. ➔ Ana Oliveira</td>
+                                <td>Diarista</td>
+                                <td>R$ 120,00</td>
+                                <td style="color: var(--accent-gold);">R$ 8,40</td>
+                                <td style="color: var(--success);">R$ 111,60</td>
+                            </tr>
+                        </tbody>
+                    </table>
                 </div>
             </div>
         </div>
     </main>
 
-    <!-- MODAL DE SOLICITAÇÃO -->
+    <!-- MODAL DE SOLICITAÇÃO DE SERVIÇO -->
     <div class="modal-overlay" id="modalOverlay">
         <div class="modal-content">
             <span class="close-modal" onclick="fecharModal()">&times;</span>
-            <h3 id="modalNomeProf" style="margin-bottom: 5px;">Solicitar Serviço</h3>
-            <p id="modalEspecProf" style="color: var(--accent-gold); font-size: 0.9rem; margin-bottom: 20px;"></p>
+            <h3 id="modalNomeProf" style="margin-bottom: 4px;">Solicitar Serviço</h3>
+            <p id="modalEspecProf" style="color: var(--accent-gold); font-size: 0.88rem; margin-bottom: 18px;"></p>
             
             <div class="form-group">
                 <label>Seu Nome Completo:</label>
                 <input type="text" id="cliNome" placeholder="Ex: Dona Lourdes / João Silva">
             </div>
             <div class="form-group">
-                <label>Bairro / Endereço em Araucária:</label>
-                <input type="text" id="cliEnd" placeholder="Ex: Centro / Costeira / Campina da Barra">
+                <label>Bairro ou Endereço em Araucária:</label>
+                <input type="text" id="cliEnd" placeholder="Ex: Centro, Costeira, Campina da Barra">
             </div>
             <div class="form-group">
-                <label>Descreva o que precisa:</label>
-                <textarea id="cliDesc" rows="3" placeholder="Ex: Preciso de atendimento em casa..."></textarea>
+                <label>Detalhes do Atendimento:</label>
+                <textarea id="cliDesc" rows="3" placeholder="Descreva brevemente o que precisa..."></textarea>
             </div>
 
-            <div style="background: rgba(229,193,88,0.1); padding: 12px; border-radius: 8px; margin-bottom: 20px; font-size: 0.85rem;">
-                <span>Valor estimado do serviço: <strong id="modalPreco">R$ 0,00</strong></span><br>
-                <span style="color: var(--text-muted);">Taxa de intermediação de 7% inclusa</span>
+            <div style="background: rgba(229,193,88,0.08); padding: 12px; border-radius: 10px; margin-bottom: 18px; font-size: 0.85rem;">
+                <span>Valor do serviço: <strong id="modalPreco">R$ 0,00</strong></span><br>
+                <span style="color: var(--text-muted);">Incluso taxa de intermediação de 7%</span>
             </div>
 
-            <button class="btn-gold" style="width: 100%;" onclick="confirmarAgendamento()">Confirmar Agendamento</button>
+            <button class="btn-gold" style="width: 100%;" onclick="confirmarAgendamento()">Confirmar Solicitação</button>
         </div>
     </div>
 
     <!-- TOAST DE CONFIRMAÇÃO -->
-    <div class="toast" id="toastMsg">Solicitação enviada com sucesso!</div>
+    <div class="toast" id="toastMsg">Mensagem do sistema</div>
 
     <!-- FOOTER -->
     <footer>
-        <p><strong>ResolveAí</strong> — "Precisou em Araucária? ResolveAí."</p>
-        <p>Projeto da disciplina de Educação Financeira • Turma 2B</p>
+        <p><strong>ResolveAí Araucária</strong> — Conectando quem precisa a quem sabe fazer.</p>
+        <p>Projeto do Colégio Estadual • Educação Financeira • Turma 2B</p>
         <div class="team-tags">
             <span>Savio Henrique (nº 33)</span> • 
             <span>Guilherme de Oliveira (nº 15)</span> • 
@@ -1209,50 +1492,36 @@
         </div>
     </footer>
 
-    <!-- JAVASCRIPT NAVEGAÇÃO ENTRE PÁGINAS -->
+    <!-- JAVASCRIPT INTEGRADO -->
     <script>
-        // Função para trocar de página/tela
+        // NAVEGAÇÃO ENTRE PÁGINAS VIRTUAIS
         function abrirPagina(idPagina) {
-            // Esconde todas as páginas
-            document.querySelectorAll('.pagina').forEach(pag => {
-                pag.classList.remove('ativa');
-            });
-
-            // Mostra apenas a página selecionada
+            document.querySelectorAll('.pagina').forEach(pag => pag.classList.remove('ativa'));
             const paginaAlvo = document.getElementById(idPagina);
-            if (paginaAlvo) {
-                paginaAlvo.classList.add('ativa');
-            }
+            if (paginaAlvo) paginaAlvo.classList.add('ativa');
 
-            // Atualiza botões da Navbar
-            document.querySelectorAll('.nav-btn').forEach(btn => {
-                btn.classList.remove('active');
-            });
+            document.querySelectorAll('.nav-btn').forEach(btn => btn.classList.remove('active'));
             const btnAtivo = document.getElementById('btn-' + idPagina);
-            if (btnAtivo) {
-                btnAtivo.classList.add('active');
-            }
+            if (btnAtivo) btnAtivo.classList.add('active');
 
-            // Fecha menu mobile caso esteja aberto
             document.getElementById('navMenu').classList.remove('active');
-
-            // Sobe a tela para o topo
             window.scrollTo({ top: 0, behavior: 'smooth' });
         }
 
-        // Toggle do menu mobile
+        // TOGGLE MENU MOBILE
         document.getElementById('menuToggle').addEventListener('click', () => {
             document.getElementById('navMenu').classList.toggle('active');
         });
 
-        // Filtros de Categoria da tela de Profissionais
-        function filtrar(categoria, btn) {
+        // FILTRO DE CATEGORIAS
+        function filtrarCategoria(cat, btn) {
             document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
             btn.classList.add('active');
 
             const cards = document.querySelectorAll('.prof-card');
             cards.forEach(card => {
-                if (categoria === 'todos' || card.getAttribute('data-cat') === categoria) {
+                const cardCat = card.getAttribute('data-cat');
+                if (cat === 'todos' || cardCat === cat) {
                     card.style.display = 'flex';
                 } else {
                     card.style.display = 'none';
@@ -1260,17 +1529,78 @@
             });
         }
 
-        // Calculadora de 7%
-        function calcular() {
-            const val = parseFloat(document.getElementById('valServico').value) || 0;
-            const taxa = val * 0.07;
-            const repasse = val - taxa;
+        // BUSCA EM TEMPO REAL (PESQUISA GUILHERME, MASSAGISTA, ENCANADOR, ETC)
+        function filtrarPorBusca() {
+            const termo = document.getElementById('searchInput').value.toLowerCase();
+            const cards = document.querySelectorAll('.prof-card');
 
-            document.getElementById('valTaxa').innerText = 'R$ ' + taxa.toFixed(2).replace('.', ',');
-            document.getElementById('valLivre').innerText = 'R$ ' + repasse.toFixed(2).replace('.', ',');
+            cards.forEach(card => {
+                const nome = card.getAttribute('data-nome').toLowerCase();
+                if (nome.includes(termo)) {
+                    card.style.display = 'flex';
+                } else {
+                    card.style.display = 'none';
+                }
+            });
         }
 
-        // Sistema de Modal de Agendamento
+        // ABRIR / FECHAR AVALIAÇÕES INDIVIDUAIS
+        function toggleReviews(btn) {
+            const reviewsBox = btn.nextElementSibling;
+            if (reviewsBox.style.display === 'block') {
+                reviewsBox.style.display = 'none';
+                btn.innerText = '💬 Ver Avaliações';
+            } else {
+                reviewsBox.style.display = 'block';
+                btn.innerText = '🔼 Ocultar Avaliações';
+            }
+        }
+
+        // SIMULADOR TAXA TRANSPARENTE
+        function setSimVal(valor) {
+            document.getElementById('simVal').value = valor;
+            calcularTaxaPersonalizada();
+        }
+
+        function calcularTaxaPersonalizada() {
+            const val = parseFloat(document.getElementById('simVal').value) || 0;
+            const taxa = val * 0.07;
+            const livre = val - taxa;
+
+            document.getElementById('simTaxa').innerText = 'R$ ' + taxa.toFixed(2).replace('.', ',');
+            document.getElementById('simLivre').innerText = 'R$ ' + livre.toFixed(2).replace('.', ',');
+        }
+
+        // AUTENTICAÇÃO ÁREA ADMINISTRATIVA / EXTRATO
+        function autenticarAdmin() {
+            const email = document.getElementById('adminEmail').value.trim();
+            const senha = document.getElementById('adminSenha').value.trim();
+
+            if (email === 'resolveai@gmail.com' && senha === '123456789') {
+                document.getElementById('adminLoginForm').style.display = 'none';
+                document.getElementById('adminPanel').style.display = 'block';
+                mostrarToast('Acesso concedido ao Extrato do Administrador!');
+            } else {
+                alert('E-mail ou senha incorretos! Digite o e-mail e senha de administrador.');
+            }
+        }
+
+        function logoutAdmin() {
+            document.getElementById('adminLoginForm').style.display = 'block';
+            document.getElementById('adminPanel').style.display = 'none';
+            document.getElementById('adminEmail').value = '';
+            document.getElementById('adminSenha').value = '';
+            mostrarToast('Sessão administrativa encerrada.');
+        }
+
+        // CADASTRO DE TRABALHADOR
+        function cadastrarTrabalhador(e) {
+            e.preventDefault();
+            mostrarToast('Cadastro enviado! Analisaremos seu perfil em breve.');
+            abrirPagina('pag-profissionais');
+        }
+
+        // MODAL DE SOLICITAÇÃO
         const modal = document.getElementById('modalOverlay');
         let profAtual = '';
 
@@ -1289,7 +1619,7 @@
         function confirmarAgendamento() {
             const nome = document.getElementById('cliNome').value;
             if(!nome) {
-                alert('Por favor, digite seu nome.');
+                alert('Por favor, informe seu nome.');
                 return;
             }
             fecharModal();
