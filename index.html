@@ -1642,37 +1642,37 @@ input[type=number] {
             setTimeout(() => toast.classList.remove('show'), 3500);
         }
     </script>
-    <!-- === INÍCIO DO CONCIERGE === -->
+ <!-- === WIDGET RESPONDEAÍ (MODO ESCURO + IA FLUIDA) === -->
 <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
 
-<div id="concierge-widget">
-  <button id="concierge-btn" onclick="toggleConcierge()">
+<div id="respondeai-widget">
+  <button id="respondeai-btn" onclick="toggleRespondeAi()">
     <span class="btn-dot"></span>
-    <span class="btn-text">Atendimento</span>
+    <span class="btn-text">RespondeAí</span>
   </button>
 
-  <div id="concierge-chat" class="chat-hidden">
+  <div id="respondeai-chat" class="chat-hidden">
     <div class="chat-header">
       <div>
-        <p class="chat-title">Concierge</p>
-        <p class="chat-status">Disponível para dúvidas</p>
+        <p class="chat-title">RespondeAí</p>
+        <p class="chat-status">Assistente Virtual • ResolveAí</p>
       </div>
-      <button onclick="toggleConcierge()" class="chat-close">&times;</button>
+      <button onclick="toggleRespondeAi()" class="chat-close">&times;</button>
     </div>
     
     <div id="chat-messages" class="chat-body">
-      <div class="msg msg-ai">Olá. Como posso auxiliar com informações sobre o site hoje?</div>
+      <div class="msg msg-ai">Olá! Sou o RespondeAí. Como posso ajudar você com o ResolveAí hoje?</div>
     </div>
 
     <div class="chat-footer">
-      <input type="text" id="chat-input" placeholder="Digite sua mensagem..." onkeypress="handleKey(event)">
+      <input type="text" id="chat-input" placeholder="Digite sua dúvida..." onkeypress="handleKey(event)">
       <button onclick="sendMessage()">Enviar</button>
     </div>
   </div>
 </div>
 
 <style>
-  #concierge-widget {
+  #respondeai-widget {
     font-family: 'Plus Jakarta Sans', -apple-system, sans-serif;
     position: fixed;
     bottom: 24px;
@@ -1680,61 +1680,63 @@ input[type=number] {
     z-index: 9999;
   }
 
-  #concierge-btn {
-    background: #111111;
-    color: #ffffff;
-    border: 1px solid rgba(255, 255, 255, 0.12);
-    padding: 12px 22px;
+  #respondeai-btn {
+    background: #18181b;
+    color: #f4f4f5;
+    border: 1px solid #27272a;
+    padding: 12px 20px;
     border-radius: 50px;
     font-size: 13px;
     font-weight: 500;
     letter-spacing: 0.3px;
     cursor: pointer;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.12);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
     display: flex;
     align-items: center;
     gap: 10px;
-    transition: transform 0.2s ease, background-color 0.2s ease;
+    transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
   }
 
-  #concierge-btn:hover {
+  #respondeai-btn:hover {
     transform: translateY(-2px);
-    background: #222222;
+    background: #27272a;
+    border-color: #3f3f46;
   }
 
   .btn-dot {
-    width: 7px;
-    height: 7px;
+    width: 8px;
+    height: 8px;
     background-color: #10b981;
     border-radius: 50%;
+    box-shadow: 0 0 8px #10b981;
   }
 
-  #concierge-chat {
+  #respondeai-chat {
     width: 360px;
-    height: 480px;
-    background: #ffffff;
-    border: 1px solid #eaeaea;
-    border-radius: 16px;
-    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08);
+    height: 490px;
+    background: #0f0f11;
+    border: 1px solid #27272a;
+    border-radius: 18px;
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.7);
     display: flex;
     flex-direction: column;
     overflow: hidden;
     position: absolute;
     bottom: 60px;
     right: 0;
-    transition: opacity 0.25s ease, transform 0.25s ease;
+    transition: opacity 0.3s cubic-bezier(0.16, 1, 0.3, 1), transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
   }
 
   .chat-hidden {
     opacity: 0;
     pointer-events: none;
-    transform: translateY(12px);
+    transform: translateY(16px) scale(0.96);
   }
 
   .chat-header {
-    background: #fafafa;
-    padding: 18px 20px;
-    border-bottom: 1px solid #f0f0f0;
+    background: #18181b;
+    padding: 16px 20px;
+    border-bottom: 1px solid #27272a;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -1744,14 +1746,13 @@ input[type=number] {
     margin: 0;
     font-weight: 600;
     font-size: 14px;
-    color: #111111;
-    letter-spacing: -0.2px;
+    color: #ffffff;
   }
 
   .chat-status {
     margin: 2px 0 0 0;
     font-size: 11px;
-    color: #71717a;
+    color: #a1a1aa;
   }
 
   .chat-close {
@@ -1760,6 +1761,11 @@ input[type=number] {
     font-size: 20px;
     color: #a1a1aa;
     cursor: pointer;
+    transition: color 0.2s;
+  }
+
+  .chat-close:hover {
+    color: #ffffff;
   }
 
   .chat-body {
@@ -1769,94 +1775,112 @@ input[type=number] {
     display: flex;
     flex-direction: column;
     gap: 12px;
+    scroll-behavior: smooth;
   }
 
   .msg {
-    max-width: 82%;
-    padding: 10px 14px;
+    max-width: 85%;
+    padding: 12px 15px;
     font-size: 13px;
     line-height: 1.5;
-    border-radius: 12px;
+    border-radius: 14px;
+    animation: fadeInMsg 0.25s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  }
+
+  @keyframes fadeInMsg {
+    from { opacity: 0; transform: translateY(6px); }
+    to { opacity: 1; transform: translateY(0); }
   }
 
   .msg-ai {
-    background: #f4f4f5;
-    color: #27272a;
+    background: #18181b;
+    color: #e4e4e7;
+    border: 1px solid #27272a;
     align-self: flex-start;
-    border-bottom-left-radius: 3px;
+    border-bottom-left-radius: 4px;
   }
 
   .msg-user {
-    background: #111111;
-    color: #ffffff;
+    background: #facc15;
+    color: #09090b;
+    font-weight: 500;
     align-self: flex-end;
-    border-bottom-right-radius: 3px;
+    border-bottom-right-radius: 4px;
   }
 
   .chat-footer {
     padding: 14px;
-    border-top: 1px solid #f4f4f5;
+    background: #18181b;
+    border-top: 1px solid #27272a;
     display: flex;
     gap: 8px;
   }
 
   .chat-footer input {
     flex: 1;
-    border: 1px solid #e4e4e7;
+    background: #09090b;
+    border: 1px solid #27272a;
+    color: #ffffff;
     border-radius: 20px;
-    padding: 9px 14px;
-    font-size: 12.5px;
+    padding: 10px 16px;
+    font-size: 13px;
     outline: none;
     font-family: inherit;
     transition: border-color 0.2s;
   }
 
   .chat-footer input:focus {
-    border-color: #111111;
+    border-color: #facc15;
   }
 
   .chat-footer button {
-    background: #111111;
-    color: white;
+    background: #facc15;
+    color: #09090b;
     border: none;
     padding: 8px 16px;
     border-radius: 20px;
     font-size: 12px;
-    font-weight: 500;
+    font-weight: 600;
     cursor: pointer;
+    transition: background-color 0.2s;
+  }
+
+  .chat-footer button:hover {
+    background: #eab308;
   }
 </style>
 
 <script>
+  // Base de dados expandida da IA para reconhecer variadas perguntas
   const siteKnowledgeBase = [
     {
-      intents: ['preco', 'preço', 'valor', 'custo', 'quanto', 'plano', 'orcamento', 'orçamento'],
-      response: 'Os valores variam de acordo com as especificações do seu projeto. Você pode consultar nossa tabela na página de Serviços ou solicitar uma proposta sob medida na aba Contato.'
+      intents: ['contratar', 'contrata', 'contrato', 'contratacao', 'alguem', 'alguém', 'profissional', 'servico', 'serviço', 'buscar', 'encontrar'],
+      response: 'Para contratar um profissional, clique em "Profissionais" no menu superior, escolha a categoria que precisa e entre em contato direto com o prestador!'
     },
     {
-      intents: ['servico', 'serviço', 'fazer', 'fazem', 'produto', 'solucao', 'solução', 'oferece'],
-      response: 'Oferecemos soluções em desenvolvimento, consultoria técnica e automação. Navegue pelo nosso portfólio no menu principal para conferir o escopo completo de cada modalidade.'
+      intents: ['trabalhar', 'cadastrar', 'cadastro', 'oferecer', 'quero trabalhar', 'prestador', 'renda', 'trampo', 'job'],
+      response: 'Quer prestar serviços? Acesse a aba "Quero Trabalhar" no topo da página e faça seu cadastro para começar a receber pedidos.'
     },
     {
-      intents: ['contato', 'falar', 'suporte', 'email', 'e-mail', 'telefone', 'whatsapp', 'humano'],
-      response: 'Nossa equipe atende pelo e-mail contato@seusite.com ou diretamente via WhatsApp pelo botão fixo na página de Contato. Atendimento de segunda a sexta, das 9h às 18h.'
+      intents: ['preco', 'preço', 'valor', 'custo', 'quanto', 'taxa', 'transparente', 'pagamento', 'porcentagem'],
+      response: 'Trabalhamos com total clareza nas taxas. Você pode conferir os detalhes na seção "Taxa Transparente" no nosso menu.'
     },
     {
-      intents: ['horario', 'horário', 'atendem', 'funciona', 'aberto'],
-      response: 'Nosso atendimento digital e este assistente funcionam 24/7. A equipe comercial e técnica responde mensagens em até 2 horas úteis dentro do horário comercial.'
+      intents: ['contato', 'falar', 'suporte', 'email', 'e-mail', 'telefone', 'whatsapp', 'atendimento', 'ajuda', 'numero', 'número'],
+      response: 'Você pode falar diretamente com o suporte pelo WhatsApp (67) 6769-6769 ou enviando um e-mail para contato@resolveai-araucaria.com.br.'
     },
     {
-      intents: ['onde', 'endereco', 'endereço', 'local', 'localizacao', 'localização', 'cidade'],
-      response: 'Atuamos de forma 100% remota com suporte em todo o país. Nossas informações fiscais e operacionais completas estão listadas no rodapé da página.'
+      intents: ['equipe', 'desenvolvedor', 'criador', 'quem fez', 'lucas', 'savio', 'guilherme', 'brayan'],
+      response: 'O ResolveAí foi desenvolvido por Savio Henrique, Guilherme de Oliveira, Brayan Vinícius e Lucas Pepes.'
     },
     {
-      intents: ['oi', 'ola', 'olá', 'bom dia', 'boa tarde', 'boa noite', 'inicio'],
-      response: 'Olá. Seja bem-vindo. Posso ajudar com informações sobre nossos serviços, preços ou contato?'
+      intents: ['oi', 'ola', 'olá', 'bom dia', 'boa tarde', 'boa noite', 'inicio', 'comecar'],
+      response: 'Olá! Como posso ajudar você a navegar pelo ResolveAí hoje?'
     }
   ];
 
-  function toggleConcierge() {
-    const chat = document.getElementById('concierge-chat');
+  function toggleRespondeAi() {
+    const chat = document.getElementById('respondeai-chat');
     chat.classList.toggle('chat-hidden');
   }
 
@@ -1867,13 +1891,14 @@ input[type=number] {
   function processAIResponse(userText) {
     const cleanText = userText.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "");
     
+    // Procura por termos compatíveis
     for (const entry of siteKnowledgeBase) {
       if (entry.intents.some(keyword => cleanText.includes(keyword))) {
         return entry.response;
       }
     }
 
-    return 'Não localizei detalhes específicos sobre essa dúvida na base do site. Recomendo consultar nosso menu superior ou falar diretamente com a equipe na aba de Contato.';
+    return 'Posso ajudar você a encontrar profissionais, fazer cadastro para trabalhar, tirar dúvidas sobre taxas ou falar com o suporte. O que precisa?';
   }
 
   function sendMessage() {
@@ -1891,9 +1916,8 @@ input[type=number] {
       const aiResponse = processAIResponse(text);
       body.innerHTML += `<div class="msg msg-ai">${aiResponse}</div>`;
       body.scrollTop = body.scrollHeight;
-    }, 400);
+    }, 300);
   }
 </script>
-<!-- === FIM DO CONCIERGE === -->
 </body>
 </html>
