@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ResolveAí - Precisou? ResolveAí.</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <header class="navbar">
+        <div class="1787256596892.png">
+            <!--COLOCAR IM AGEMMMMMMMMMMMMMMMMMM-->
+            <span class="brand-name">Resolve<span>Aí</span></span>
+        </div>
+        <button class="menu-toggle" id="menuToggle">☰</button>
+        <nav class="nav-links" id="navLinks">
+            <a href="#inicio">Início</a>
+            <a href="#como-funciona">Como Funciona</a>
+            <a href="#categorias">Categorias</a>
+            <a href="#mvp">Buscar Profissionais</a>
+            <a href="#diferencial">Diferencial</a>
+        </nav>
+    </header>
+
+    <section id="inicio" class="hero">
+        <div class="hero-content">
+            <span class="badge">PROJETO EMPREENDEDORISMO • TURMA 2B</span>
+            <h1>Precisou? <span>ResolveAí.</span></h1>
+            <p>Conectamos quem precisa de ajuda com profissionais qualificados da sua região de forma simples, rápida e transparente.</p>
+            <div class="hero-btns">
+                <a href="#mvp" class="btn-primary">Testar Plataforma</a>
+                <a href="#como-funciona" class="btn-secondary">Como Funciona</a>
+            </div>
+        </div>
+        <div class="1787256596892.png">
+            <!--COLOCAR IM AGEMMMMMMMMMMMMMMMMMM-->
+        </div>
+    </section>
+
+    <section id="como-funciona" class="section">
+        <div class="section-header">
+            <h2>Do problema à solução em poucos passos</h2>
+            <p>Esqueça a complicação de procurar em múltiplos lugares.</p>
+        </div>
+        <div class="steps-grid">
+            <div class="step-card">
+                <span class="step-num">01</span>
+                <h3>Procure</h3>
+                <p>Escolha o serviço ou categoria que você precisa no momento.</p>
+            </div>
+            <div class="step-card">
+                <span class="step-num">02</span>
+                <h3>Compare</h3>
+                <p>Veja perfis verificados, avaliações de outros clientes e estimativas de preço.</p>
+            </div>
+            <div class="step-card">
+                <span class="step-num">03</span>
+                <h3>Solicite</h3>
+                <p>Combine os detalhes e contrate o profissional ideal direto pela plataforma.</p>
+            </div>
+            <div class="step-card">
+                <span class="step-num">04</span>
+                <h3>Resolva</h3>
+                <p>Serviço concluído com segurança e taxa justa para ambos os lados.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="categorias" class="section">
+        <div class="section-header">
+            <h2>Encontre quem você precisa</h2>
+            <p>Principais áreas de atendimento disponíveis</p>
+        </div>
+        <div class="cards-grid">
+            <div class="card">
+                <div class="card-icon">🔧</div>
+                <h3>Casa & Manutenção</h3>
+                <p>Eletricista, encanador, pintor, chaveiro</p>
+            </div>
+            <div class="card">
+                <div class="card-icon">🧹</div>
+                <h3>Limpeza</h3>
+                <p>Faxina, limpeza pesada, lavagem de sofás</p>
+            </div>
+            <div class="card">
+                <div class="card-icon">💻</div>
+                <h3>Tecnologia</h3>
+                <p>Informática, redes Wi-Fi, manutenção</p>
+            </div>
+            <div class="card">
+                <div class="card-icon">🐶</div>
+                <h3>Pets</h3>
+                <p>Pet sitter, passeador, cuidados</p>
+            </div>
+            <div class="card">
+                <div class="card-icon">🌱</div>
+                <h3>Jardinagem</h3>
+                <p>Corte de grama, poda, paisagismo</p>
+            </div>
+            <div class="card">
+                <div class="card-icon">🚗</div>
+                <h3>Veículos</h3>
+                <p>Lavagem, mecânica rápida, borracharia</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="mvp" class="section mvp-box">
+        <div class="section-header">
+            <h2>Protótipo da Plataforma (MVP)</h2>
+            <p>Faça uma busca demonstrativa no nosso sistema em tempo real</p>
+        </div>
+        
+        <div class="search-box">
+            <input type="text" id="searchInput" placeholder="O que você precisa hoje? (Ex: Eletricista, Faxina...)">
+            <button onclick="buscarProfissional()">Buscar</button>
+        </div>
+
+        <div class="professionals-list" id="profList">
+            <div class="prof-card" data-cat="eletricista">
+                <div class="prof-avatar">M</div>
+                <div class="prof-info">
+                    <h4>Marcos Silva</h4>
+                    <p class="prof-spec">Eletricista residencial • <span>★ 4.9</span></p>
+                    <p class="prof-region">📍 Próximo a você</p>
+                </div>
+                <button class="btn-solicitar">Solicitar</button>
+            </div>
+
+            <div class="prof-card" data-cat="faxina">
+                <div class="prof-avatar">A</div>
+                <div class="prof-info">
+                    <h4>Ana Oliveira</h4>
+                    <p class="prof-spec">Especialista em Limpeza • <span>★ 4.8</span></p>
+                    <p class="prof-region">📍 Próximo a você</p>
+                </div>
+                <button class="btn-solicitar">Solicitar</button>
+            </div>
+        </div>
+    </section>
+
+    <section id="diferencial" class="section">
+        <div class="section-header">
+            <h2>Nosso Diferencial: Taxa de Apenas 7%</h2>
+            <p>Mais transparência e ganhos justos para o profissional</p>
+        </div>
+        <div class="calculator-card">
+            <div class="calc-row">
+                <span>Valor do serviço:</span>
+                <strong>R$ 100,00</strong>
+            </div>
+            <div class="calc-row highlight">
+                <span>Taxa ResolveAí (7%):</span>
+                <strong>R$ 7,00</strong>
+            </div>
+            <div class="calc-row success">
+                <span>O Profissional recebe:</span>
+                <strong>R$ 93,00</strong>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <p><strong>ResolveAí</strong> — Projeto de Empreendedorismo • Turma 2B</p>
+        <p>Integrantes: Savio Henrique (nº 33), Guilherme de Oliveira (nº 15), Brayan Vinícius (nº 5)</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
