@@ -31,12 +31,18 @@
         }
 
         /* Removendo setinhas do campo de número */
-        input[type=number]::-webkit-inner-spin-button, 
-        input[type=number]::-webkit-outer-spin-button { 
-            -webkit-appearance: none;
-            margin: 0; 
-        }
-        input[type=number] { -moz-appearance: textfield; }
+/* Chrome, Safari, Edge e Opera */
+input[type=number]::-webkit-outer-spin-button,
+input[type=number]::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox e padrão moderno */
+input[type=number] {
+  -moz-appearance: textfield;
+  appearance: textfield;
+}
 
         body {
             background-color: var(--bg-body);
@@ -1636,5 +1642,258 @@
             setTimeout(() => toast.classList.remove('show'), 3500);
         }
     </script>
+    <!-- === INÍCIO DO CONCIERGE === -->
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+<div id="concierge-widget">
+  <button id="concierge-btn" onclick="toggleConcierge()">
+    <span class="btn-dot"></span>
+    <span class="btn-text">Atendimento</span>
+  </button>
+
+  <div id="concierge-chat" class="chat-hidden">
+    <div class="chat-header">
+      <div>
+        <p class="chat-title">Concierge</p>
+        <p class="chat-status">Disponível para dúvidas</p>
+      </div>
+      <button onclick="toggleConcierge()" class="chat-close">&times;</button>
+    </div>
+    
+    <div id="chat-messages" class="chat-body">
+      <div class="msg msg-ai">Olá. Como posso auxiliar com informações sobre o site hoje?</div>
+    </div>
+
+    <div class="chat-footer">
+      <input type="text" id="chat-input" placeholder="Digite sua mensagem..." onkeypress="handleKey(event)">
+      <button onclick="sendMessage()">Enviar</button>
+    </div>
+  </div>
+</div>
+
+<style>
+  #concierge-widget {
+    font-family: 'Plus Jakarta Sans', -apple-system, sans-serif;
+    position: fixed;
+    bottom: 24px;
+    right: 24px;
+    z-index: 9999;
+  }
+
+  #concierge-btn {
+    background: #111111;
+    color: #ffffff;
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    padding: 12px 22px;
+    border-radius: 50px;
+    font-size: 13px;
+    font-weight: 500;
+    letter-spacing: 0.3px;
+    cursor: pointer;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.12);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    transition: transform 0.2s ease, background-color 0.2s ease;
+  }
+
+  #concierge-btn:hover {
+    transform: translateY(-2px);
+    background: #222222;
+  }
+
+  .btn-dot {
+    width: 7px;
+    height: 7px;
+    background-color: #10b981;
+    border-radius: 50%;
+  }
+
+  #concierge-chat {
+    width: 360px;
+    height: 480px;
+    background: #ffffff;
+    border: 1px solid #eaeaea;
+    border-radius: 16px;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08);
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    position: absolute;
+    bottom: 60px;
+    right: 0;
+    transition: opacity 0.25s ease, transform 0.25s ease;
+  }
+
+  .chat-hidden {
+    opacity: 0;
+    pointer-events: none;
+    transform: translateY(12px);
+  }
+
+  .chat-header {
+    background: #fafafa;
+    padding: 18px 20px;
+    border-bottom: 1px solid #f0f0f0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .chat-title {
+    margin: 0;
+    font-weight: 600;
+    font-size: 14px;
+    color: #111111;
+    letter-spacing: -0.2px;
+  }
+
+  .chat-status {
+    margin: 2px 0 0 0;
+    font-size: 11px;
+    color: #71717a;
+  }
+
+  .chat-close {
+    background: none;
+    border: none;
+    font-size: 20px;
+    color: #a1a1aa;
+    cursor: pointer;
+  }
+
+  .chat-body {
+    flex: 1;
+    padding: 20px;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .msg {
+    max-width: 82%;
+    padding: 10px 14px;
+    font-size: 13px;
+    line-height: 1.5;
+    border-radius: 12px;
+  }
+
+  .msg-ai {
+    background: #f4f4f5;
+    color: #27272a;
+    align-self: flex-start;
+    border-bottom-left-radius: 3px;
+  }
+
+  .msg-user {
+    background: #111111;
+    color: #ffffff;
+    align-self: flex-end;
+    border-bottom-right-radius: 3px;
+  }
+
+  .chat-footer {
+    padding: 14px;
+    border-top: 1px solid #f4f4f5;
+    display: flex;
+    gap: 8px;
+  }
+
+  .chat-footer input {
+    flex: 1;
+    border: 1px solid #e4e4e7;
+    border-radius: 20px;
+    padding: 9px 14px;
+    font-size: 12.5px;
+    outline: none;
+    font-family: inherit;
+    transition: border-color 0.2s;
+  }
+
+  .chat-footer input:focus {
+    border-color: #111111;
+  }
+
+  .chat-footer button {
+    background: #111111;
+    color: white;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 20px;
+    font-size: 12px;
+    font-weight: 500;
+    cursor: pointer;
+  }
+</style>
+
+<script>
+  const siteKnowledgeBase = [
+    {
+      intents: ['preco', 'preço', 'valor', 'custo', 'quanto', 'plano', 'orcamento', 'orçamento'],
+      response: 'Os valores variam de acordo com as especificações do seu projeto. Você pode consultar nossa tabela na página de Serviços ou solicitar uma proposta sob medida na aba Contato.'
+    },
+    {
+      intents: ['servico', 'serviço', 'fazer', 'fazem', 'produto', 'solucao', 'solução', 'oferece'],
+      response: 'Oferecemos soluções em desenvolvimento, consultoria técnica e automação. Navegue pelo nosso portfólio no menu principal para conferir o escopo completo de cada modalidade.'
+    },
+    {
+      intents: ['contato', 'falar', 'suporte', 'email', 'e-mail', 'telefone', 'whatsapp', 'humano'],
+      response: 'Nossa equipe atende pelo e-mail contato@seusite.com ou diretamente via WhatsApp pelo botão fixo na página de Contato. Atendimento de segunda a sexta, das 9h às 18h.'
+    },
+    {
+      intents: ['horario', 'horário', 'atendem', 'funciona', 'aberto'],
+      response: 'Nosso atendimento digital e este assistente funcionam 24/7. A equipe comercial e técnica responde mensagens em até 2 horas úteis dentro do horário comercial.'
+    },
+    {
+      intents: ['onde', 'endereco', 'endereço', 'local', 'localizacao', 'localização', 'cidade'],
+      response: 'Atuamos de forma 100% remota com suporte em todo o país. Nossas informações fiscais e operacionais completas estão listadas no rodapé da página.'
+    },
+    {
+      intents: ['oi', 'ola', 'olá', 'bom dia', 'boa tarde', 'boa noite', 'inicio'],
+      response: 'Olá. Seja bem-vindo. Posso ajudar com informações sobre nossos serviços, preços ou contato?'
+    }
+  ];
+
+  function toggleConcierge() {
+    const chat = document.getElementById('concierge-chat');
+    chat.classList.toggle('chat-hidden');
+  }
+
+  function handleKey(e) {
+    if (e.key === 'Enter') sendMessage();
+  }
+
+  function processAIResponse(userText) {
+    const cleanText = userText.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "");
+    
+    for (const entry of siteKnowledgeBase) {
+      if (entry.intents.some(keyword => cleanText.includes(keyword))) {
+        return entry.response;
+      }
+    }
+
+    return 'Não localizei detalhes específicos sobre essa dúvida na base do site. Recomendo consultar nosso menu superior ou falar diretamente com a equipe na aba de Contato.';
+  }
+
+  function sendMessage() {
+    const input = document.getElementById('chat-input');
+    const text = input.value.trim();
+    if (!text) return;
+
+    const body = document.getElementById('chat-messages');
+    
+    body.innerHTML += `<div class="msg msg-user">${text}</div>`;
+    input.value = '';
+    body.scrollTop = body.scrollHeight;
+
+    setTimeout(() => {
+      const aiResponse = processAIResponse(text);
+      body.innerHTML += `<div class="msg msg-ai">${aiResponse}</div>`;
+      body.scrollTop = body.scrollHeight;
+    }, 400);
+  }
+</script>
+<!-- === FIM DO CONCIERGE === -->
 </body>
 </html>
